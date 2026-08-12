@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Tối ưu và chẩn đoán mạng</title>
+</head>
+<body>
+  <h1>Tối ưu và chẩn đoán mạng</h1>
+  <p>Add-on NVDA tiếng Việt này chuyển những phần hữu ích của tệp batch tối ưu mạng thành các tác vụ có mô tả, kết quả và xác nhận rõ ràng.</p>
+  <p><strong>Tác giả:</strong> Võ Duy Khánh</p>
+
+  <h2>Cách mở</h2>
+  <p>Trong NVDA, mở menu Công cụ và chọn “Tối ưu và chẩn đoán mạng…”. Hãy bắt đầu bằng “Kiểm tra nhanh”; tác vụ này chỉ đọc thông tin và không thay đổi cài đặt. Nếu muốn dùng phím tắt, có thể gán lệnh “Mở Tối ưu và chẩn đoán mạng” trong Input Gestures của NVDA.</p>
+
+  <h2>Tùy chỉnh add-on</h2>
+  <p>Mở NVDA &gt; Preferences &gt; Settings rồi chọn “Tối ưu và chẩn đoán mạng”. Trang này cho phép bật hoặc tắt trợ lý DNS, chọn Cloudflare, Google Public DNS và/hoặc Quad9 để đo, và ẩn hoặc hiện các nhóm Bảo trì, Nâng cao và Khắc phục mạnh. Việc thay đổi các ô chọn chỉ điều khiển các chức năng được hiển thị; không tự chạy lệnh mạng.</p>
+  <p>Có thể mở nhanh trang này bằng nút “Tùy chỉnh add-on” trong cửa sổ add-on, hoặc gán phím cho lệnh “Mở phần cài đặt Tối ưu và chẩn đoán mạng” trong Input Gestures. Nếu đã ẩn mục ở menu Công cụ, trang tùy chỉnh vẫn luôn có trong Preferences &gt; Settings.</p>
+
+  <h2>Tự chọn DNS</h2>
+  <p>Add-on đo các DNS công cộng đã được bật trong Cài đặt: Cloudflare, Google Public DNS và/hoặc Quad9, ba lần cho mỗi DNS. Nó ưu tiên DNS phản hồi ổn định rồi mới so sánh thời gian phản hồi, sau đó yêu cầu bạn chọn kết nối mạng và xác nhận trước khi đổi DNS IPv4.</p>
+  <p>Quad9 có bộ lọc chống tên miền độc hại, vì vậy đôi khi có thể chặn một trang hợp lệ. Add-on sẽ nhắc lại điều này nếu Quad9 là lựa chọn được đề xuất.</p>
+  <p>Kết quả đo chỉ biểu thị độ phản hồi của máy chủ DNS từ kết nối hiện tại. Nó không đo toàn bộ tốc độ Internet và không bảo đảm tăng tốc tải xuống. Add-on không tự đổi DNS, không tắt IPv6 và không chạm vào VPN nếu bạn không chọn VPN. Tùy mạng, DNS IPv6 hoặc VPN vẫn có thể được Windows sử dụng.</p>
+  <p>Dùng “Khôi phục DNS tự động (DHCP)” để bỏ DNS thủ công và dùng lại DNS do router hoặc nhà mạng cấp. Thao tác này chỉ trả thiết lập DNS về DHCP; nó không thay IP hoặc gateway.</p>
+
+  <h2>Các tác vụ khác</h2>
+  <ul>
+    <li>Xóa DNS cache: làm mới bản ghi DNS tạm.</li>
+    <li>Xóa ARP cache: chỉ dùng khi có vấn đề mạng nội bộ; có thể làm chậm kết nối LAN trong chốc lát.</li>
+    <li>Đặt TCP Auto-Tuning = Normal: phục hồi mức Normal, không phải cam kết làm mạng nhanh hơn.</li>
+    <li>Xóa proxy WinHTTP: không dùng nếu mạng cơ quan/trường học yêu cầu proxy.</li>
+    <li>Đặt lại Winsock: chỉ dùng khi cần; VPN/phần mềm bảo mật có thể bị ảnh hưởng và phải khởi động lại Windows.</li>
+  </ul>
+
+  <h2>An toàn</h2>
+  <p>Mọi tác vụ thay đổi hệ thống đều hiển thị cảnh báo và yêu cầu quyền quản trị Windows. Add-on không chạy tự động khi cài hoặc khi NVDA khởi động. Nó không có ô nhập lệnh tùy ý; mã quyền quản trị chỉ có danh sách thao tác cố định và dùng thành phần PowerShell có sẵn của Windows. Add-on không tự đặt lại tường lửa, không tự giải phóng/đổi địa chỉ IP, và không dùng TCP Chimney vì tính năng đó đã lỗi thời. Báo cáo DNS giữ lại lần đo trước khi đổi và cấu hình DNS đọc lại sau khi áp dụng.</p>
+
+  <h2>Khắc phục sự cố</h2>
+  <p>Nếu không có kết nối hoạt động để chọn, hãy mở “Cài đặt mạng Windows” từ cửa sổ add-on và kiểm tra Wi-Fi/Ethernet trước. Nếu đang điều khiển máy từ xa, đừng dùng các tác vụ đặt lại mạng mạnh vì phiên điều khiển có thể bị ngắt.</p>
+</body>
+</html>
