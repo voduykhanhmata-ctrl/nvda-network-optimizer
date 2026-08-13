@@ -35,3 +35,7 @@ Từ cửa sổ add-on cũng có nút **Tùy chỉnh add-on** dẫn thẳng tớ
 ## Lưu ý
 
 Đo DNS không đồng nghĩa với tăng tốc tải xuống. Các hồ sơ DNS dùng địa chỉ IPv4; add-on không tắt IPv6 và Windows/VPN có thể vẫn dùng DNS khác. Không sử dụng các thao tác khắc phục mạnh nếu bạn đang kết nối qua RDP/VPN hoặc mạng công ty mà chưa biết cấu hình đang dùng.
+
+## Giấy phép
+
+Dự án được phát hành theo [MIT License](LICENSE). Bản quyền © 2026 Võ Duy Khánh.

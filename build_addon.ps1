@@ -16,7 +16,8 @@ if (Test-Path -LiteralPath $temporaryZipPath) {
 Compress-Archive -Path @(
 	(Join-Path $projectRoot "manifest.ini"),
 	(Join-Path $projectRoot "globalPlugins"),
-	(Join-Path $projectRoot "doc")
+	(Join-Path $projectRoot "doc"),
+	(Join-Path $projectRoot "LICENSE")
 ) -DestinationPath $temporaryZipPath -CompressionLevel Optimal -ErrorAction Stop
 
 Move-Item -LiteralPath $temporaryZipPath -Destination $outputPath
