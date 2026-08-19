@@ -1,0 +1,366 @@
+# Vietnamese translations for the Network Optimizer NVDA add-on.
+# Copyright (C) 2026 Võ Duy Khánh
+# This file is distributed under the same license as the Network Optimizer add-on.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: networkOptimizer 1.2.0\n"
+"PO-Revision-Date: 2026-08-13 00:00+0700\n"
+"Last-Translator: Võ Duy Khánh\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+msgid "Google Public DNS"
+msgstr "Google Public DNS"
+
+msgid "Quad9"
+msgstr "Quad9"
+
+msgid "Basic: Quick check (safe; makes no changes)"
+msgstr "Cơ bản: Kiểm tra nhanh (an toàn, không thay đổi)"
+
+msgid "View active connections and TCP/proxy configuration, and measure the responsiveness of public DNS providers enabled in Settings. No settings are changed."
+msgstr "Xem kết nối đang hoạt động, cấu hình TCP/proxy và đo độ phản hồi của các DNS công cộng đã bật trong Cài đặt. Không thay đổi cài đặt."
+
+msgid "Basic: Automatically choose the most responsive DNS"
+msgstr "Cơ bản: Tự chọn DNS phản hồi nhanh nhất"
+
+msgid "Measure the response time of DNS providers enabled in Settings. You can then choose whether to apply the recommended IPv4 DNS to a connection."
+msgstr "Đo phản hồi của các DNS đã bật trong Cài đặt; sau đó bạn mới chọn có áp dụng DNS IPv4 được đề xuất cho một kết nối hay không."
+
+msgid "The add-on will measure DNS response time first. If it has a recommendation, applying it replaces the current IPv4 DNS on the selected connection and requires Windows administrator permission."
+msgstr "Tiện ích sẽ đo phản hồi DNS trước. Nếu có đề xuất, việc áp dụng sẽ thay DNS IPv4 hiện tại của kết nối đã chọn và cần quyền quản trị Windows."
+
+msgid "Basic: Restore automatic DNS (DHCP)"
+msgstr "Cơ bản: Khôi phục DNS tự động (DHCP)"
+
+msgid "Remove manually configured IPv4 DNS so DNS is provided by your router or internet service provider."
+msgstr "Bỏ DNS IPv4 đã đặt thủ công để dùng DNS do router hoặc nhà mạng cấp."
+
+msgid "The selected connection's manually configured IPv4 DNS will be replaced with automatic DNS from DHCP. Windows will request administrator permission. Continue?"
+msgstr "DNS IPv4 thủ công của kết nối đã chọn sẽ bị thay bằng DNS tự động từ DHCP. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "Maintenance: Flush DNS cache"
+msgstr "Bảo trì: Xóa bộ nhớ đệm DNS"
+
+msgid "Remove temporary DNS records from this computer. Useful when a domain name has recently changed address."
+msgstr "Xóa các bản ghi DNS tạm trên máy. Hữu ích khi một tên miền vừa đổi địa chỉ."
+
+msgid "Windows will clear the DNS cache. This does not change configured DNS, but administrator permission is required. Continue?"
+msgstr "Windows sẽ xóa DNS cache. Thao tác này không thay DNS đã cài, nhưng cần quyền quản trị. Tiếp tục?"
+
+msgid "Advanced: Clear ARP cache"
+msgstr "Nâng cao: Xóa ARP cache"
+
+msgid "Force Windows to learn local-network device addresses again. Your LAN connection may be briefly slower."
+msgstr "Buộc Windows học lại địa chỉ thiết bị trong mạng nội bộ. Kết nối LAN có thể chậm thoáng qua."
+
+msgid "The ARP cache will be cleared. Local network connectivity may slow down or briefly disconnect. Windows will request administrator permission. Continue?"
+msgstr "ARP cache sẽ bị xóa. Kết nối mạng nội bộ có thể chậm hoặc ngắt thoáng qua. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "Advanced: Set TCP Auto-Tuning to Normal"
+msgstr "Nâng cao: Đặt TCP Auto-Tuning = Normal"
+
+msgid "Restore Windows TCP Auto-Tuning to Normal. This does not guarantee faster internet."
+msgstr "Khôi phục mức Auto-Tuning TCP Normal của Windows. Đây không phải cam kết tăng tốc Internet."
+
+msgid "TCP Auto-Tuning will be set to Normal. This may not make your network faster and requires administrator permission. Continue?"
+msgstr "TCP Auto-Tuning sẽ được đặt thành Normal. Thao tác có thể không làm mạng nhanh hơn và cần quyền quản trị. Tiếp tục?"
+
+msgid "Advanced: Reset WinHTTP proxy"
+msgstr "Nâng cao: Xóa proxy WinHTTP"
+
+msgid "Reset the system-level proxy used by some Windows services. Do not use this if your workplace or school requires a proxy."
+msgstr "Đặt lại proxy cấp hệ thống dùng bởi một số dịch vụ Windows. Không dùng nếu cơ quan/trường học yêu cầu proxy."
+
+msgid "The current WinHTTP proxy will be removed. Some workplace applications, VPNs, or services may lose connectivity. Windows will request administrator permission. Continue?"
+msgstr "Proxy WinHTTP hiện tại sẽ bị xóa. Một số ứng dụng cơ quan, VPN hoặc dịch vụ có thể mất kết nối. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "Strong repair: Reset Winsock (restart required)"
+msgstr "Khắc phục mạnh: Đặt lại Winsock (cần khởi động lại)"
+
+msgid "Reset Windows network components. Use only if basic measures do not help; VPN or security software may need to be configured again."
+msgstr "Đặt lại thành phần mạng Windows. Chỉ dùng khi các cách cơ bản không hiệu quả; VPN hoặc phần mềm bảo mật có thể cần cấu hình lại."
+
+msgid "Winsock will be reset. VPNs, proxies, or security software may be affected, and you will need to restart Windows. Windows will request administrator permission. Continue?"
+msgstr "Winsock sẽ được đặt lại. VPN, proxy hoặc phần mềm bảo mật có thể bị ảnh hưởng và bạn cần khởi động lại Windows. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "Timed out. "
+msgstr "Hết thời gian chờ. "
+
+msgid "IPv4: "
+msgstr "IPv4: "
+
+msgid "unknown"
+msgstr "không xác định"
+
+msgid "Current DNS: "
+msgstr "DNS hiện tại: "
+
+msgid "… (truncated)"
+msgstr "… (đã rút gọn)"
+
+msgid "Administrator permission request was cancelled. The task was not run."
+msgstr "Đã hủy yêu cầu quyền quản trị. Tác vụ chưa được chạy."
+
+msgid "The task has not finished after 2 minutes. Do not run it again immediately; check your network status first."
+msgstr "Tác vụ vẫn chưa kết thúc sau 2 phút. Không chạy lại ngay; hãy kiểm tra trạng thái mạng trước."
+
+msgid "Windows could not start the task with administrator permission (code {})."
+msgstr "Windows không thể khởi chạy tác vụ có quyền quản trị (mã {})."
+
+msgid "Windows reports that the task did not finish (code {}). Do not make further changes; check your network configuration."
+msgstr "Windows báo tác vụ không hoàn tất (mã {}). Không thay đổi thêm và hãy kiểm tra lại cấu hình mạng."
+
+msgid "DNS APPLICATION RESULT"
+msgstr "KẾT QUẢ ÁP DỤNG DNS"
+
+msgid "Requested {}: {} and {} for connection '{}'."
+msgstr "Đã yêu cầu đặt {}: {} và {} cho kết nối '{}'."
+
+msgid "Configuration read back:"
+msgstr "Cấu hình đọc lại:"
+
+msgid "Requested restoration of automatic DNS (DHCP) for '{}'."
+msgstr "Đã yêu cầu khôi phục DNS tự động (DHCP) cho '{}'."
+
+msgid "Reset Winsock. Restart Windows before evaluating the result."
+msgstr "Đã đặt lại Winsock. Hãy khởi động lại Windows trước khi đánh giá kết quả."
+
+msgid "Reset the WinHTTP proxy."
+msgstr "Đã đặt lại proxy WinHTTP."
+
+msgid "Set TCP Auto-Tuning to Normal."
+msgstr "Đã đặt TCP Auto-Tuning = Normal."
+
+msgid "Cleared the ARP cache."
+msgstr "Đã xóa ARP cache."
+
+msgid "Cleared the Windows DNS cache."
+msgstr "Đã xóa bộ nhớ đệm DNS của Windows."
+
+msgid "unavailable"
+msgstr "không rõ"
+
+msgid "Network Optimizer and Diagnostics"
+msgstr "Tối ưu và chẩn đoán mạng"
+
+msgid "Choose which features to show. Changing DNS or network settings always requires separate confirmation and Windows administrator permission."
+msgstr "Chọn các chức năng muốn hiển thị. Việc đổi DNS hoặc thay đổi mạng vẫn luôn cần xác nhận riêng và quyền quản trị Windows."
+
+msgid "Show an add-on shortcut in NVDA's &Tools menu"
+msgstr "Hiển thị lối tắt mở add-on trong menu &Công cụ của NVDA"
+
+msgid "DNS assistant"
+msgstr "Trợ lý DNS"
+
+msgid "Enable the &DNS assistant: measure, recommend, change, and restore IPv4 DNS"
+msgstr "Bật trợ lý &DNS: đo, đề xuất, đổi và khôi phục DNS IPv4"
+
+msgid "Measure and allow &Cloudflare (1.1.1.1)"
+msgstr "Đo và cho phép dùng &Cloudflare (1.1.1.1)"
+
+msgid "Measure and allow &Google Public DNS (8.8.8.8)"
+msgstr "Đo và cho phép dùng &Google Public DNS (8.8.8.8)"
+
+msgid "Measure and allow &Quad9 (9.9.9.9, with security filtering)"
+msgstr "Đo và cho phép dùng &Quad9 (9.9.9.9, có lọc bảo mật)"
+
+msgid "Task groups"
+msgstr "Các nhóm tác vụ"
+
+msgid "Show &maintenance: Flush DNS cache"
+msgstr "Hiển thị &bảo trì: Xóa bộ nhớ đệm DNS"
+
+msgid "Show &advanced tasks: ARP cache, TCP Auto-Tuning, and proxy"
+msgstr "Hiển thị tác vụ &nâng cao: ARP cache, TCP Auto-Tuning và proxy"
+
+msgid "Show &strong repair: Reset Winsock (restart required)"
+msgstr "Hiển thị khắc phục &mạnh: Đặt lại Winsock (cần khởi động lại)"
+
+msgid "Select at least one DNS provider, or turn off the DNS assistant."
+msgstr "Hãy chọn ít nhất một nhà cung cấp DNS, hoặc bỏ chọn Trợ lý DNS."
+
+msgid "Choose a task. Basic tasks are safe; all other tasks explain their effects and require confirmation before they change network settings."
+msgstr "Chọn một tác vụ. Tác vụ Cơ bản là an toàn; các tác vụ khác luôn giải thích tác động và yêu cầu xác nhận trước khi thay đổi mạng."
+
+msgid "Task:"
+msgstr "Tác vụ:"
+
+msgid "Ready."
+msgstr "Sẵn sàng."
+
+msgid "Results:"
+msgstr "Kết quả:"
+
+msgid "&Run task"
+msgstr "&Chạy tác vụ"
+
+msgid "&Copy results"
+msgstr "&Sao chép kết quả"
+
+msgid "&Customize add-on"
+msgstr "&Tùy chỉnh add-on"
+
+msgid "Open Windows &network settings"
+msgstr "Mở cài đặt &mạng Windows"
+
+msgid "&Close"
+msgstr "Đó&ng"
+
+msgid "No tasks are currently shown."
+msgstr "Không có tác vụ nào đang được hiển thị."
+
+msgid "No results to copy."
+msgstr "Chưa có kết quả để sao chép."
+
+msgid "Results copied."
+msgstr "Đã sao chép kết quả."
+
+msgid "Cannot open the clipboard."
+msgstr "Không thể mở bảng nhớ tạm."
+
+msgid "Cannot open Windows network settings."
+msgstr "Không thể mở cài đặt mạng Windows."
+
+msgid "&Network Optimizer and Diagnostics..."
+msgstr "&Tối ưu và chẩn đoán mạng..."
+
+msgid "Open Network Optimizer and Diagnostics"
+msgstr "Mở Tối ưu và chẩn đoán mạng"
+
+msgid "Open Network Optimizer and Diagnostics settings"
+msgstr "Mở phần cài đặt Tối ưu và chẩn đoán mạng"
+
+msgid "This task is hidden in the add-on settings."
+msgstr "Tác vụ này đang bị ẩn trong phần cài đặt add-on."
+
+msgid "Checking the connection. Please wait..."
+msgstr "Đang kiểm tra kết nối. Vui lòng chờ..."
+
+msgid "Checking the network."
+msgstr "Đang kiểm tra mạng."
+
+msgid "QUICK CHECK REPORT"
+msgstr "BÁO CÁO KIỂM TRA NHANH"
+
+msgid "Active IPv4 connections:"
+msgstr "Kết nối IPv4 đang hoạt động:"
+
+msgid "Active connection: Could not determine."
+msgstr "Kết nối đang hoạt động: Không xác định được."
+
+msgid "DNS response (this is DNS server responsiveness only, not overall internet speed):"
+msgstr "Phản hồi DNS (chỉ là độ phản hồi của máy chủ DNS, không phải toàn bộ tốc độ Internet):"
+
+msgid "not responding (0/3)"
+msgstr "không phản hồi (0/3)"
+
+msgid "{} ms"
+msgstr "{} ms"
+
+msgid "DNS measurement: Turned off in add-on settings."
+msgstr "Đo DNS: Đã tắt trong phần cài đặt add-on."
+
+msgid "Interface status:"
+msgstr "Trạng thái giao diện:"
+
+msgid "Could not read: "
+msgstr "Không đọc được: "
+
+msgid "Global TCP:"
+msgstr "TCP toàn cục:"
+
+msgid "WinHTTP proxy:"
+msgstr "Proxy WinHTTP:"
+
+msgid "Check complete."
+msgstr "Đã hoàn tất kiểm tra."
+
+msgid "Network check complete."
+msgstr "Đã hoàn tất kiểm tra mạng."
+
+msgid "DNS assistant is off or no DNS provider is selected. Open add-on settings to enable it."
+msgstr "Trợ lý DNS đang tắt hoặc chưa chọn nhà cung cấp DNS. Mở phần cài đặt add-on để bật lại."
+
+msgid "Measuring DNS response. Please wait..."
+msgstr "Đang đo phản hồi DNS. Vui lòng chờ..."
+
+msgid "Measuring DNS response."
+msgstr "Đang đo phản hồi DNS."
+
+msgid "DNS MEASUREMENT RESULTS"
+msgstr "KẾT QUẢ ĐO DNS"
+
+msgid "No DNS providers responded."
+msgstr "Không có DNS nào phản hồi."
+
+msgid "No public DNS providers responded."
+msgstr "Không có DNS công cộng nào phản hồi."
+
+msgid "Recommendation: {} ({} and {})."
+msgstr "Đề xuất: {} ({} và {})."
+
+msgid "You still need to choose a connection and confirm before DNS is changed."
+msgstr "Bạn vẫn cần chọn kết nối và xác nhận trước khi DNS được thay đổi."
+
+msgid "The DNS assistant was turned off while measuring."
+msgstr "Trợ lý DNS đã được tắt trong khi đang đo."
+
+msgid "DNS recommendation is ready."
+msgstr "Đã có đề xuất DNS."
+
+msgid "Found a recommended DNS."
+msgstr "Đã tìm được DNS đề xuất."
+
+msgid "Finding active connections..."
+msgstr "Đang tìm kết nối đang hoạt động..."
+
+msgid "Could not find an active network connection."
+msgstr "Không tìm thấy kết nối mạng đang hoạt động."
+
+msgid "Choose the connection that will receive the IPv4 DNS configuration. Do not choose a VPN unless you are sure."
+msgstr "Chọn kết nối sẽ nhận cấu hình DNS IPv4. Không chọn VPN nếu bạn không chắc chắn."
+
+msgid "Choose network connection"
+msgstr "Chọn kết nối mạng"
+
+msgid "The DNS assistant is turned off in the add-on settings."
+msgstr "Trợ lý DNS đang bị tắt trong phần cài đặt add-on."
+
+msgid " Quad9 provides security filtering and may block some domain names."
+msgstr " Quad9 có bộ lọc bảo mật và có thể chặn một số tên miền."
+
+msgid "IPv4 DNS for connection '{adapter}' will be replaced with {provider}: {primary} and {secondary}. Current DNS: {currentDns}. This does not guarantee faster internet.{providerNote} Windows will request administrator permission. Continue?"
+msgstr "DNS IPv4 của kết nối '{adapter}' sẽ được thay bằng {provider}: {primary} và {secondary}. DNS hiện tại: {currentDns}. Điều này không bảo đảm Internet nhanh hơn.{providerNote} Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "The manually configured IPv4 DNS for connection '{adapter}' will be replaced with automatic DNS from DHCP. Current DNS: {currentDns}. Windows will request administrator permission. Continue?"
+msgstr "DNS IPv4 thủ công của kết nối '{adapter}' sẽ bị thay bằng DNS tự động từ DHCP. DNS hiện tại: {currentDns}. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
+
+msgid "Cancelled."
+msgstr "Đã hủy."
+
+msgid "Task information is invalid; the task was not run."
+msgstr "Thông tin tác vụ không hợp lệ; tác vụ chưa được chạy."
+
+msgid "Windows will request administrator permission. Waiting for completion..."
+msgstr "Windows sẽ yêu cầu quyền quản trị. Đang chờ hoàn tất..."
+
+msgid "Windows will request administrator permission. Running the task."
+msgstr "Windows sẽ yêu cầu quyền quản trị. Đang chạy tác vụ."
+
+msgid "Could not verify the task result: {}."
+msgstr "Không thể kiểm tra kết quả tác vụ: {}."
+
+msgid "Task complete."
+msgstr "Đã hoàn tất tác vụ."
+
+msgid "Task did not complete."
+msgstr "Tác vụ không hoàn tất."

@@ -1,41 +1,51 @@
 # NVDA Network Optimizer
 
-Add-on NVDA tiếng Việt, được xây dựng từ các ý tưởng hữu ích trong `Toi_uu_mang_Nang_Cao_20_lenh.bat` nhưng không chạy một chuỗi lệnh phá cấu hình mạng.
+[English](README.md) | [Tiếng Việt](README.vi.md)
 
-**Tác giả:** Võ Duy Khánh
+NVDA Network Optimizer is an NVDA add-on for inspecting and diagnosing network connectivity. It adapts useful ideas from `Toi_uu_mang_Nang_Cao_20_lenh.bat` without running a batch of commands that could disrupt an existing network configuration.
 
-## Điểm chính
+**Author:** Võ Duy Khánh
 
-- Kiểm tra nhanh, chỉ đọc thông tin mạng và đo độ phản hồi DNS.
-- So sánh Cloudflare, Google Public DNS và Quad9, sau đó **chỉ đề xuất** DNS IPv4 có độ phản hồi tốt nhất.
-- Người dùng phải chọn kết nối mạng, thấy DNS hiện tại và xác nhận trước khi DNS thay đổi; báo cáo giữ kết quả đo trước/sau.
-- Các thao tác có rủi ro (Winsock, proxy, ARP) được tách riêng, giải thích rõ và yêu cầu UAC.
-- Có trang **Tối ưu và chẩn đoán mạng** trong Cài đặt NVDA để bật/tắt từng nhóm tác vụ, chọn DNS công cộng được đo và ẩn/hiện lối tắt ở menu Công cụ.
-- Không bao gồm thao tác đặt lại tường lửa, release/renew IP, reset IPv4/IPv6 hàng loạt hoặc TCP Chimney từ batch gốc vì dễ làm mất cấu hình hoặc đã lỗi thời.
-- Không có trường nhập lệnh tùy ý. Các thao tác cần quyền quản trị gọi PowerShell có sẵn của Windows với mã lệnh nằm trong bộ thao tác cố định, không chạy tệp script kèm add-on ở quyền cao.
+## Highlights
 
-## Đóng gói
+- Run a quick, read-only check of network information and DNS responsiveness.
+- Test Cloudflare, Google Public DNS, and Quad9, then **suggest** the most responsive enabled IPv4 DNS service.
+- Choose the network connection yourself, review its current DNS servers, and confirm before any DNS change. The report retains results from before and after the operation.
+- Keep potentially disruptive operations, such as Winsock reset, proxy reset, and ARP-cache clearing, separate with clear explanations, confirmation, and a Windows administrator prompt.
+- Use the **Network Optimization and Diagnostics** page in NVDA Settings to enable or disable individual task groups, choose which public DNS services are measured, and show or hide the shortcut in the Tools menu.
+- Do not include firewall resets, IP release/renew operations, bulk IPv4/IPv6 resets, or TCP Chimney from the original batch file. These actions can remove a working configuration or are obsolete.
+- Do not provide a free-form command field. Administrator-level actions use a fixed set of built-in Windows PowerShell operations; the add-on does not run bundled scripts with elevated privileges.
 
-Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.1.1.nvda-addon`.
+## Languages
 
-## Cài đặt
+The add-on interface, metadata, and Help are available in English and Vietnamese. English is the fallback for other NVDA interface languages.
 
-Mở tệp `.nvda-addon`, chấp nhận cài đặt trong NVDA, rồi khởi động lại NVDA nếu được yêu cầu. Add-on hướng tới NVDA 2026.1.
+## Building
 
-## Tùy chỉnh và tìm add-on
+Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.2.0.nvda-addon`.
 
-Trong NVDA, mở **Preferences → Settings → Tối ưu và chẩn đoán mạng**. Tại đây có thể:
+## Installation
 
-- Bật/tắt trợ lý DNS và chọn Cloudflare, Google Public DNS hoặc Quad9 để đo/đề xuất.
-- Ẩn hoặc hiện các nhóm bảo trì, nâng cao và khắc phục mạnh để giao diện chỉ còn các mục phù hợp.
-- Ẩn/hiện lối tắt trong **Tools**. Nếu đã ẩn mục này, vẫn mở được trang tùy chỉnh từ **Preferences → Settings** hoặc gán phím cho lệnh “Mở phần cài đặt Tối ưu và chẩn đoán mạng” trong Input Gestures.
+Open the `.nvda-addon` file, accept the installation in NVDA, and restart NVDA if requested. The add-on targets NVDA 2026.1.
 
-Từ cửa sổ add-on cũng có nút **Tùy chỉnh add-on** dẫn thẳng tới trang này.
+## Configuring and finding the add-on
 
-## Lưu ý
+In NVDA, open **Preferences → Settings → Network Optimization and Diagnostics**. From this page, you can:
 
-Đo DNS không đồng nghĩa với tăng tốc tải xuống. Các hồ sơ DNS dùng địa chỉ IPv4; add-on không tắt IPv6 và Windows/VPN có thể vẫn dùng DNS khác. Không sử dụng các thao tác khắc phục mạnh nếu bạn đang kết nối qua RDP/VPN hoặc mạng công ty mà chưa biết cấu hình đang dùng.
+- Enable or disable the DNS assistant and select Cloudflare, Google Public DNS, and/or Quad9 for testing and suggestions.
+- Show or hide the maintenance, advanced, and stronger repair task groups to keep the interface focused on the features you need.
+- Show or hide the shortcut in **Tools**. If it is hidden, you can still open this settings page through **Preferences → Settings** or assign a gesture to “Open Network Optimization and Diagnostics settings” in Input Gestures.
 
-## Giấy phép
+The add-on window also contains a **Customize add-on** button that opens this page directly.
 
-Dự án được phát hành theo [MIT License](LICENSE). Bản quyền © 2026 Võ Duy Khánh.
+## Important notes
+
+DNS responsiveness is not the same as download speed. DNS profiles use IPv4 addresses; the add-on does not disable IPv6, and Windows or a VPN may still use another DNS service. Do not use stronger repair operations while connected through RDP, a VPN, or an organization-managed network unless you understand the current configuration.
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. A Vietnamese guide is available in [CONTRIBUTING.vi.md](CONTRIBUTING.vi.md).
+
+## License
+
+This project is released under the [MIT License](LICENSE). Copyright © 2026 Võ Duy Khánh.

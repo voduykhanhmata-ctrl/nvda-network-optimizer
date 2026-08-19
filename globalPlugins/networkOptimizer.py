@@ -61,53 +61,53 @@ class Action:
 ACTIONS = (
 	Action(
 		"diagnose",
-		_("Cơ bản: Kiểm tra nhanh (an toàn, không thay đổi)"),
-		_("Xem kết nối đang hoạt động, cấu hình TCP/proxy và đo độ phản hồi của các DNS công cộng đã bật trong Cài đặt. Không thay đổi cài đặt."),
+		_("Basic: Quick check (safe; makes no changes)"),
+		_("View active connections and TCP/proxy configuration, and measure the responsiveness of public DNS providers enabled in Settings. No settings are changed."),
 		"",
 	),
 	Action(
 		"fastDns",
-		_("Cơ bản: Tự chọn DNS phản hồi nhanh nhất"),
-		_("Đo phản hồi của các DNS đã bật trong Cài đặt; sau đó bạn mới chọn có áp dụng DNS IPv4 được đề xuất cho một kết nối hay không."),
-		_("Tiện ích sẽ đo phản hồi DNS trước. Nếu có đề xuất, việc áp dụng sẽ thay DNS IPv4 hiện tại của kết nối đã chọn và cần quyền quản trị Windows."),
+		_("Basic: Automatically choose the most responsive DNS"),
+		_("Measure the response time of DNS providers enabled in Settings. You can then choose whether to apply the recommended IPv4 DNS to a connection."),
+		_("The add-on will measure DNS response time first. If it has a recommendation, applying it replaces the current IPv4 DNS on the selected connection and requires Windows administrator permission."),
 		True,
 	),
 	Action(
 		"restoreDhcpDns",
-		_("Cơ bản: Khôi phục DNS tự động (DHCP)"),
-		_("Bỏ DNS IPv4 đã đặt thủ công để dùng DNS do router hoặc nhà mạng cấp."),
-		_("DNS IPv4 thủ công của kết nối đã chọn sẽ bị thay bằng DNS tự động từ DHCP. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"),
+		_("Basic: Restore automatic DNS (DHCP)"),
+		_("Remove manually configured IPv4 DNS so DNS is provided by your router or internet service provider."),
+		_("The selected connection's manually configured IPv4 DNS will be replaced with automatic DNS from DHCP. Windows will request administrator permission. Continue?"),
 		True,
 	),
 	Action(
 		"flushDns",
-		_("Bảo trì: Xóa bộ nhớ đệm DNS"),
-		_("Xóa các bản ghi DNS tạm trên máy. Hữu ích khi một tên miền vừa đổi địa chỉ."),
-		_("Windows sẽ xóa DNS cache. Thao tác này không thay DNS đã cài, nhưng cần quyền quản trị. Tiếp tục?"),
+		_("Maintenance: Flush DNS cache"),
+		_("Remove temporary DNS records from this computer. Useful when a domain name has recently changed address."),
+		_("Windows will clear the DNS cache. This does not change configured DNS, but administrator permission is required. Continue?"),
 	),
 	Action(
 		"clearArp",
-		_("Nâng cao: Xóa ARP cache"),
-		_("Buộc Windows học lại địa chỉ thiết bị trong mạng nội bộ. Kết nối LAN có thể chậm thoáng qua."),
-		_("ARP cache sẽ bị xóa. Kết nối mạng nội bộ có thể chậm hoặc ngắt thoáng qua. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"),
+		_("Advanced: Clear ARP cache"),
+		_("Force Windows to learn local-network device addresses again. Your LAN connection may be briefly slower."),
+		_("The ARP cache will be cleared. Local network connectivity may slow down or briefly disconnect. Windows will request administrator permission. Continue?"),
 	),
 	Action(
 		"tcpAutoTuningNormal",
-		_("Nâng cao: Đặt TCP Auto-Tuning = Normal"),
-		_("Khôi phục mức Auto-Tuning TCP Normal của Windows. Đây không phải cam kết tăng tốc Internet."),
-		_("TCP Auto-Tuning sẽ được đặt thành Normal. Thao tác có thể không làm mạng nhanh hơn và cần quyền quản trị. Tiếp tục?"),
+		_("Advanced: Set TCP Auto-Tuning to Normal"),
+		_("Restore Windows TCP Auto-Tuning to Normal. This does not guarantee faster internet."),
+		_("TCP Auto-Tuning will be set to Normal. This may not make your network faster and requires administrator permission. Continue?"),
 	),
 	Action(
 		"resetProxy",
-		_("Nâng cao: Xóa proxy WinHTTP"),
-		_("Đặt lại proxy cấp hệ thống dùng bởi một số dịch vụ Windows. Không dùng nếu cơ quan/trường học yêu cầu proxy."),
-		_("Proxy WinHTTP hiện tại sẽ bị xóa. Một số ứng dụng cơ quan, VPN hoặc dịch vụ có thể mất kết nối. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"),
+		_("Advanced: Reset WinHTTP proxy"),
+		_("Reset the system-level proxy used by some Windows services. Do not use this if your workplace or school requires a proxy."),
+		_("The current WinHTTP proxy will be removed. Some workplace applications, VPNs, or services may lose connectivity. Windows will request administrator permission. Continue?"),
 	),
 	Action(
 		"winsockReset",
-		_("Khắc phục mạnh: Đặt lại Winsock (cần khởi động lại)"),
-		_("Đặt lại thành phần mạng Windows. Chỉ dùng khi các cách cơ bản không hiệu quả; VPN hoặc phần mềm bảo mật có thể cần cấu hình lại."),
-		_("Winsock sẽ được đặt lại. VPN, proxy hoặc phần mềm bảo mật có thể bị ảnh hưởng và bạn cần khởi động lại Windows. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"),
+		_("Strong repair: Reset Winsock (restart required)"),
+		_("Reset Windows network components. Use only if basic measures do not help; VPN or security software may need to be configured again."),
+		_("Winsock will be reset. VPNs, proxies, or security software may be affected, and you will need to restart Windows. Windows will request administrator permission. Continue?"),
 	),
 )
 
@@ -198,7 +198,7 @@ def _run_process(argv, timeout=20):
 	except subprocess.TimeoutExpired:
 		process.kill()
 		output, _unused = process.communicate()
-		return -1, _("Hết thời gian chờ. ") + (output or "").strip()
+		return -1, _("Timed out. ") + (output or "").strip()
 	except OSError as error:
 		return -1, str(error)
 
@@ -292,9 +292,9 @@ def _active_adapters_from_netsh():
 
 
 def _adapter_label(adapter):
-	parts = [adapter["alias"], _("IPv4: ") + (adapter["ipv4"] or _("không rõ"))]
+	parts = [adapter["alias"], _("IPv4: ") + (adapter["ipv4"] or _("unavailable"))]
 	if adapter["dns"]:
-		parts.append(_("DNS hiện tại: ") + adapter["dns"])
+		parts.append(_("Current DNS: ") + adapter["dns"])
 	return " — ".join(parts)
 
 
@@ -314,7 +314,7 @@ def _dns_benchmark_command(providers):
 	"""Build a probe from fixed built-in IP addresses; it accepts no user text."""
 	servers = ", ".join("'{}'".format(provider[2][0]) for provider in providers)
 	if not servers:
-		raise ValueError("Không có DNS nào được chọn để đo.")
+		raise ValueError("No DNS providers are selected for measurement.")
 	return DNS_BENCHMARK_COMMAND_TEMPLATE.replace("__SERVERS__", servers)
 
 
@@ -348,7 +348,7 @@ def _measure_dns_providers(providers):
 def _trim_output(output, limit=2500):
 	if len(output) <= limit:
 		return output
-	return output[:limit] + "\n" + _("… (đã rút gọn)")
+	return output[:limit] + "\n" + _("… (truncated)")
 
 
 def _elevated_script_for_action(action_id, provider_id=None, adapter=None):
@@ -362,27 +362,27 @@ def _elevated_script_for_action(action_id, provider_id=None, adapter=None):
 	suffix = "\n\texit 0\n} catch {\n\tWrite-Error $_\n\texit 1\n}"
 	if action_id == "applyDns":
 		if provider_id not in PROVIDER_BY_ID or not adapter:
-			raise ValueError("Thiếu thông tin DNS hoặc kết nối mạng.")
+			raise ValueError("DNS or network connection information is missing.")
 		interface_index = int(adapter["index"])
 		if interface_index <= 0:
-			raise ValueError("Chỉ số kết nối mạng không hợp lệ.")
+			raise ValueError("Network connection index is invalid.")
 		_provider_name, servers = PROVIDER_BY_ID[provider_id]
 		body = """
 	$config = Get-NetIPConfiguration -InterfaceIndex {index} -ErrorAction Stop
-	if (-not $config.IPv4Address) {{ throw 'Kết nối không có địa chỉ IPv4.' }}
-	if (-not $config.IPv4DefaultGateway) {{ throw 'Kết nối không có cổng mặc định; có thể là VPN hoặc kết nối ảo.' }}
+	if (-not $config.IPv4Address) {{ throw 'The connection does not have an IPv4 address.' }}
+	if (-not $config.IPv4DefaultGateway) {{ throw 'The connection has no default gateway; it may be a VPN or virtual connection.' }}
 	Set-DnsClientServerAddress -InterfaceIndex {index} -ServerAddresses @('{primary}', '{secondary}') -Validate -ErrorAction Stop
 	""".format(index=interface_index, primary=servers[0], secondary=servers[1])
 	elif action_id == "restoreDhcpDns":
 		if not adapter:
-			raise ValueError("Thiếu thông tin kết nối mạng.")
+			raise ValueError("Network connection information is missing.")
 		interface_index = int(adapter["index"])
 		if interface_index <= 0:
-			raise ValueError("Chỉ số kết nối mạng không hợp lệ.")
+			raise ValueError("Network connection index is invalid.")
 		body = """
 	$config = Get-NetIPConfiguration -InterfaceIndex {index} -ErrorAction Stop
-	if (-not $config.IPv4Address) {{ throw 'Kết nối không có địa chỉ IPv4.' }}
-	if (-not $config.IPv4DefaultGateway) {{ throw 'Kết nối không có cổng mặc định; có thể là VPN hoặc kết nối ảo.' }}
+	if (-not $config.IPv4Address) {{ throw 'The connection does not have an IPv4 address.' }}
+	if (-not $config.IPv4DefaultGateway) {{ throw 'The connection has no default gateway; it may be a VPN or virtual connection.' }}
 	Set-DnsClientServerAddress -InterfaceIndex {index} -ResetServerAddresses -ErrorAction Stop
 	""".format(index=interface_index)
 	elif action_id == "flushDns":
@@ -408,7 +408,7 @@ def _elevated_script_for_action(action_id, provider_id=None, adapter=None):
 	if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 	"""
 	else:
-		raise ValueError("Tác vụ quản trị không hợp lệ.")
+		raise ValueError("Administrative task is invalid.")
 	return prefix + body + suffix
 
 
@@ -474,13 +474,13 @@ def _run_elevated_powershell(script):
 
 def _post_action_report(action_id, provider_id, adapter, exit_code, launch_error):
 	if launch_error == 1223:
-		return _("Đã hủy yêu cầu quyền quản trị. Tác vụ chưa được chạy."), False
+		return _("Administrator permission request was cancelled. The task was not run."), False
 	if launch_error == "timeout":
-		return _("Tác vụ vẫn chưa kết thúc sau 2 phút. Không chạy lại ngay; hãy kiểm tra trạng thái mạng trước."), False
+		return _("The task has not finished after 2 minutes. Do not run it again immediately; check your network status first."), False
 	if launch_error is not None:
-		return _("Windows không thể khởi chạy tác vụ có quyền quản trị (mã {}).").format(launch_error), False
+		return _("Windows could not start the task with administrator permission (code {}).").format(launch_error), False
 	if exit_code != 0:
-		return _("Windows báo tác vụ không hoàn tất (mã {}). Không thay đổi thêm và hãy kiểm tra lại cấu hình mạng.").format(exit_code), False
+		return _("Windows reports that the task did not finish (code {}). Do not make further changes; check your network configuration.").format(exit_code), False
 
 	if action_id == "applyDns":
 		provider_name, servers = PROVIDER_BY_ID[provider_id]
@@ -489,10 +489,10 @@ def _post_action_report(action_id, provider_id, adapter, exit_code, launch_error
 			timeout=12,
 		)
 		return "\n".join((
-			_("KẾT QUẢ ÁP DỤNG DNS"),
-			_("Đã yêu cầu đặt {}: {} và {} cho kết nối '{}'.").format(provider_name, servers[0], servers[1], adapter["alias"]),
+			_("DNS APPLICATION RESULT"),
+			_("Requested {}: {} and {} for connection '{}'.").format(provider_name, servers[0], servers[1], adapter["alias"]),
 			"",
-			_("Cấu hình đọc lại:"),
+			_("Configuration read back:"),
 			_trim_output(output),
 		)), True
 	if action_id == "restoreDhcpDns":
@@ -501,34 +501,34 @@ def _post_action_report(action_id, provider_id, adapter, exit_code, launch_error
 			timeout=12,
 		)
 		return "\n".join((
-			_("Đã yêu cầu khôi phục DNS tự động (DHCP) cho '{}'.").format(adapter["alias"]),
+			_("Requested restoration of automatic DNS (DHCP) for '{}'.").format(adapter["alias"]),
 			"",
-			_("Cấu hình đọc lại:"),
+			_("Configuration read back:"),
 			_trim_output(output),
 		)), True
 	if action_id == "winsockReset":
-		return _("Đã đặt lại Winsock. Hãy khởi động lại Windows trước khi đánh giá kết quả."), True
+		return _("Reset Winsock. Restart Windows before evaluating the result."), True
 	if action_id == "resetProxy":
-		return _("Đã đặt lại proxy WinHTTP."), True
+		return _("Reset the WinHTTP proxy."), True
 	if action_id == "tcpAutoTuningNormal":
-		return _("Đã đặt TCP Auto-Tuning = Normal."), True
+		return _("Set TCP Auto-Tuning to Normal."), True
 	if action_id == "clearArp":
-		return _("Đã xóa ARP cache."), True
-	return _("Đã xóa bộ nhớ đệm DNS của Windows."), True
+		return _("Cleared the ARP cache."), True
+	return _("Cleared the Windows DNS cache."), True
 
 
 class NetworkOptimizerSettingsPanel(SettingsPanel):
 	"""Preferences intentionally control visibility, never run a network action."""
 
-	title = _("Tối ưu và chẩn đoán mạng")
+	title = _("Network Optimizer and Diagnostics")
 	_plugin = None
 
 	def makeSettings(self, settingsSizer):
 		intro = wx.StaticText(
 			self,
 			label=_(
-				"Chọn các chức năng muốn hiển thị. Việc đổi DNS hoặc thay đổi mạng vẫn luôn cần "
-				"xác nhận riêng và quyền quản trị Windows."
+				"Choose which features to show. Changing DNS or network settings always requires "
+				"separate confirmation and Windows administrator permission."
 			),
 		)
 		intro.Wrap(650)
@@ -536,46 +536,46 @@ class NetworkOptimizerSettingsPanel(SettingsPanel):
 
 		self._show_tools_menu = self._add_checkbox(
 			settingsSizer,
-			_("Hiển thị lối tắt mở add-on trong menu &Công cụ của NVDA"),
+			_("Show an add-on shortcut in NVDA's &Tools menu"),
 			"showToolsMenu",
 		)
 
-		settingsSizer.Add(wx.StaticText(self, label=_("Trợ lý DNS")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
+		settingsSizer.Add(wx.StaticText(self, label=_("DNS assistant")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
 		self._enable_dns_assistant = self._add_checkbox(
 			settingsSizer,
-			_("Bật trợ lý &DNS: đo, đề xuất, đổi và khôi phục DNS IPv4"),
+			_("Enable the &DNS assistant: measure, recommend, change, and restore IPv4 DNS"),
 			"enableDnsAssistant",
 		)
 		self._dns_cloudflare = self._add_checkbox(
 			settingsSizer,
-			_("Đo và cho phép dùng &Cloudflare (1.1.1.1)"),
+			_("Measure and allow &Cloudflare (1.1.1.1)"),
 			"dnsCloudflare",
 		)
 		self._dns_google = self._add_checkbox(
 			settingsSizer,
-			_("Đo và cho phép dùng &Google Public DNS (8.8.8.8)"),
+			_("Measure and allow &Google Public DNS (8.8.8.8)"),
 			"dnsGoogle",
 		)
 		self._dns_quad9 = self._add_checkbox(
 			settingsSizer,
-			_("Đo và cho phép dùng &Quad9 (9.9.9.9, có lọc bảo mật)"),
+			_("Measure and allow &Quad9 (9.9.9.9, with security filtering)"),
 			"dnsQuad9",
 		)
 
-		settingsSizer.Add(wx.StaticText(self, label=_("Các nhóm tác vụ")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
+		settingsSizer.Add(wx.StaticText(self, label=_("Task groups")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
 		self._show_maintenance = self._add_checkbox(
 			settingsSizer,
-			_("Hiển thị &bảo trì: Xóa bộ nhớ đệm DNS"),
+			_("Show &maintenance: Flush DNS cache"),
 			"showMaintenance",
 		)
 		self._show_advanced = self._add_checkbox(
 			settingsSizer,
-			_("Hiển thị tác vụ &nâng cao: ARP cache, TCP Auto-Tuning và proxy"),
+			_("Show &advanced tasks: ARP cache, TCP Auto-Tuning, and proxy"),
 			"showAdvanced",
 		)
 		self._show_strong_repair = self._add_checkbox(
 			settingsSizer,
-			_("Hiển thị khắc phục &mạnh: Đặt lại Winsock (cần khởi động lại)"),
+			_("Show &strong repair: Reset Winsock (restart required)"),
 			"showStrongRepair",
 		)
 
@@ -600,7 +600,7 @@ class NetworkOptimizerSettingsPanel(SettingsPanel):
 	def isValid(self):
 		if self._enable_dns_assistant.IsChecked() and not any(control.IsChecked() for control in self._dns_controls):
 			wx.MessageBox(
-				_("Hãy chọn ít nhất một nhà cung cấp DNS, hoặc bỏ chọn Trợ lý DNS."),
+				_("Select at least one DNS provider, or turn off the DNS assistant."),
 				self.title,
 				wx.OK | wx.ICON_WARNING,
 				self,
@@ -626,14 +626,14 @@ class NetworkOptimizerSettingsPanel(SettingsPanel):
 
 class NetworkOptimizerDialog(wx.Dialog):
 	def __init__(self, parent, plugin, actions):
-		super().__init__(parent, title=_("Tối ưu và chẩn đoán mạng"), style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+		super().__init__(parent, title=_("Network Optimizer and Diagnostics"), style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 		self._plugin = plugin
 		self._actions = tuple(actions)
 
 		outer = wx.BoxSizer(wx.VERTICAL)
 		intro = wx.StaticText(
 			self,
-			label=_("Chọn một tác vụ. Tác vụ Cơ bản là an toàn; các tác vụ khác luôn giải thích tác động và yêu cầu xác nhận trước khi thay đổi mạng."),
+			label=_("Choose a task. Basic tasks are safe; all other tasks explain their effects and require confirmation before they change network settings."),
 		)
 		intro.Wrap(620)
 		outer.Add(intro, 0, wx.ALL | wx.EXPAND, 10)
@@ -641,27 +641,27 @@ class NetworkOptimizerDialog(wx.Dialog):
 		self._choice = wx.Choice(self, choices=[action.title for action in self._actions])
 		if self._actions:
 			self._choice.SetSelection(0)
-		outer.Add(wx.StaticText(self, label=_("Tác vụ:")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
+		outer.Add(wx.StaticText(self, label=_("Task:")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
 		outer.Add(self._choice, 0, wx.ALL | wx.EXPAND, 10)
 
 		self._description = wx.StaticText(self, label="")
 		self._description.Wrap(620)
 		outer.Add(self._description, 0, wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, 10)
 
-		self._status = wx.StaticText(self, label=_("Sẵn sàng."))
+		self._status = wx.StaticText(self, label=_("Ready."))
 		outer.Add(self._status, 0, wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, 10)
 
-		outer.Add(wx.StaticText(self, label=_("Kết quả:")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
+		outer.Add(wx.StaticText(self, label=_("Results:")), 0, wx.LEFT | wx.RIGHT | wx.TOP, 10)
 		self._result = wx.TextCtrl(self, style=wx.TE_MULTILINE | wx.TE_READONLY | wx.HSCROLL)
 		self._result.SetMinSize((640, 260))
 		outer.Add(self._result, 1, wx.ALL | wx.EXPAND, 10)
 
 		buttons = wx.BoxSizer(wx.HORIZONTAL)
-		self._run_button = wx.Button(self, label=_("&Chạy tác vụ"))
-		self._copy_button = wx.Button(self, label=_("&Sao chép kết quả"))
-		self._addon_settings_button = wx.Button(self, label=_("&Tùy chỉnh add-on"))
-		self._settings_button = wx.Button(self, label=_("Mở cài đặt &mạng Windows"))
-		self._close_button = wx.Button(self, wx.ID_CLOSE, label=_("Đó&ng"))
+		self._run_button = wx.Button(self, label=_("&Run task"))
+		self._copy_button = wx.Button(self, label=_("&Copy results"))
+		self._addon_settings_button = wx.Button(self, label=_("&Customize add-on"))
+		self._settings_button = wx.Button(self, label=_("Open Windows &network settings"))
+		self._close_button = wx.Button(self, wx.ID_CLOSE, label=_("&Close"))
 		for button in (self._run_button, self._copy_button, self._addon_settings_button, self._settings_button, self._close_button):
 			buttons.Add(button, 0, wx.ALL, 5)
 		outer.Add(buttons, 0, wx.ALL | wx.ALIGN_RIGHT, 5)
@@ -722,7 +722,7 @@ class NetworkOptimizerDialog(wx.Dialog):
 
 	def _refresh_action_description(self):
 		action = self.selected_action()
-		self._description.SetLabel(action.description if action else _("Không có tác vụ nào đang được hiển thị."))
+		self._description.SetLabel(action.description if action else _("No tasks are currently shown."))
 		self._description.Wrap(620)
 		self.Layout()
 
@@ -737,16 +737,16 @@ class NetworkOptimizerDialog(wx.Dialog):
 	def _on_copy(self, _event):
 		text = self._result.GetValue()
 		if not text:
-			ui.message(_("Chưa có kết quả để sao chép."))
+			ui.message(_("No results to copy."))
 			return
 		if wx.TheClipboard.Open():
 			try:
 				wx.TheClipboard.SetData(wx.TextDataObject(text))
 			finally:
 				wx.TheClipboard.Close()
-			ui.message(_("Đã sao chép kết quả."))
+			ui.message(_("Results copied."))
 		else:
-			ui.message(_("Không thể mở bảng nhớ tạm."))
+			ui.message(_("Cannot open the clipboard."))
 
 	def _on_addon_settings(self, _event):
 		self._plugin.open_addon_settings()
@@ -755,7 +755,7 @@ class NetworkOptimizerDialog(wx.Dialog):
 		try:
 			os.startfile("ms-settings:network-status")
 		except OSError:
-			ui.message(_("Không thể mở cài đặt mạng Windows."))
+			ui.message(_("Cannot open Windows network settings."))
 
 	def _on_close(self, _event):
 		self._plugin.dialog_closed(self)
@@ -795,7 +795,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _install_tools_menu_item(self):
 		if self._menu_item is not None:
 			return
-		self._menu_item = self._tools_menu.Append(wx.ID_ANY, _("&Tối ưu và chẩn đoán mạng..."))
+		self._menu_item = self._tools_menu.Append(wx.ID_ANY, _("&Network Optimizer and Diagnostics..."))
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self._on_menu, self._menu_item)
 
 	def _remove_tools_menu_item(self):
@@ -855,16 +855,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gui.mainFrame.postPopup()
 
 	@scriptHandler.script(
-		description=_("Mở Tối ưu và chẩn đoán mạng"),
-		category=_("Tối ưu và chẩn đoán mạng"),
+		description=_("Open Network Optimizer and Diagnostics"),
+		category=_("Network Optimizer and Diagnostics"),
 	)
 	def script_openNetworkOptimizer(self, gesture):
 		"""Exposed in NVDA Input Gestures so users may choose their own shortcut."""
 		self._on_menu(None)
 
 	@scriptHandler.script(
-		description=_("Mở phần cài đặt Tối ưu và chẩn đoán mạng"),
-		category=_("Tối ưu và chẩn đoán mạng"),
+		description=_("Open Network Optimizer and Diagnostics settings"),
+		category=_("Network Optimizer and Diagnostics"),
 	)
 	def script_openNetworkOptimizerSettings(self, gesture):
 		"""Exposed in NVDA Input Gestures for a direct Settings shortcut."""
@@ -876,7 +876,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def run_action(self, action):
 		if not action or action.identifier not in {item.identifier for item in self._available_actions()}:
-			ui.message(_("Tác vụ này đang bị ẩn trong phần cài đặt add-on."))
+			ui.message(_("This task is hidden in the add-on settings."))
 			return
 		if action.identifier == "diagnose":
 			self._start_diagnostics()
@@ -897,8 +897,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _start_diagnostics(self):
 		providers = _configured_dns_providers()
-		self._set_busy(True, _("Đang kiểm tra kết nối. Vui lòng chờ..."))
-		ui.message(_("Đang kiểm tra mạng."))
+		self._set_busy(True, _("Checking the connection. Please wait..."))
+		ui.message(_("Checking the network."))
 		threading.Thread(target=self._diagnostics_worker, args=(providers,), daemon=True).start()
 
 	def _diagnostics_worker(self, providers):
@@ -908,44 +908,44 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		proxy_code, proxy = _run_process(["netsh.exe", "winhttp", "show", "proxy"], timeout=12)
 		dns_results = _measure_dns_providers(providers)
 
-		lines = [_("BÁO CÁO KIỂM TRA NHANH"), ""]
+		lines = [_("QUICK CHECK REPORT"), ""]
 		if adapters:
-			lines.append(_("Kết nối IPv4 đang hoạt động:"))
+			lines.append(_("Active IPv4 connections:"))
 			for adapter in adapters:
 				lines.append("- " + _adapter_label(adapter))
 		else:
-			lines.append(_("Kết nối đang hoạt động: Không xác định được."))
+			lines.append(_("Active connection: Could not determine."))
 		lines.append("")
 		if dns_results:
-			lines.append(_("Phản hồi DNS (chỉ là độ phản hồi của máy chủ DNS, không phải toàn bộ tốc độ Internet):"))
+			lines.append(_("DNS response (this is DNS server responsiveness only, not overall internet speed):"))
 			for _identifier, name, _servers, latency, successes in dns_results:
 				if latency is None:
-					lines.append("- {}: {}".format(name, _("không phản hồi (0/3)")))
+					lines.append("- {}: {}".format(name, _("not responding (0/3)")))
 				else:
 					lines.append("- {}: {} ({}/3)".format(name, _("{} ms").format(latency), successes))
 		else:
-			lines.append(_("Đo DNS: Đã tắt trong phần cài đặt add-on."))
-		lines.extend(("", _("Trạng thái giao diện:"), _trim_output(interfaces) if interface_code == 0 else _("Không đọc được: ") + interfaces))
-		lines.extend(("", _("TCP toàn cục:"), _trim_output(tcp) if tcp_code == 0 else _("Không đọc được: ") + tcp))
-		lines.extend(("", _("Proxy WinHTTP:"), _trim_output(proxy) if proxy_code == 0 else _("Không đọc được: ") + proxy))
+			lines.append(_("DNS measurement: Turned off in add-on settings."))
+		lines.extend(("", _("Interface status:"), _trim_output(interfaces) if interface_code == 0 else _("Could not read: ") + interfaces))
+		lines.extend(("", _("Global TCP:"), _trim_output(tcp) if tcp_code == 0 else _("Could not read: ") + tcp))
+		lines.extend(("", _("WinHTTP proxy:"), _trim_output(proxy) if proxy_code == 0 else _("Could not read: ") + proxy))
 		wx.CallAfter(self._complete_diagnostics, "\n".join(lines))
 
 	def _complete_diagnostics(self, report):
 		if self._terminated:
 			return
-		self._set_busy(False, _("Đã hoàn tất kiểm tra."))
+		self._set_busy(False, _("Check complete."))
 		dialog = self._active_dialog()
 		if dialog:
-			dialog.show_result(report, _("Đã hoàn tất kiểm tra."))
-		ui.message(_("Đã hoàn tất kiểm tra mạng."))
+			dialog.show_result(report, _("Check complete."))
+		ui.message(_("Network check complete."))
 
 	def _start_fast_dns(self):
 		providers = _configured_dns_providers()
 		if not providers:
-			ui.message(_("Trợ lý DNS đang tắt hoặc chưa chọn nhà cung cấp DNS. Mở phần cài đặt add-on để bật lại."))
+			ui.message(_("DNS assistant is off or no DNS provider is selected. Open add-on settings to enable it."))
 			return
-		self._set_busy(True, _("Đang đo phản hồi DNS. Vui lòng chờ..."))
-		ui.message(_("Đang đo phản hồi DNS."))
+		self._set_busy(True, _("Measuring DNS response. Please wait..."))
+		ui.message(_("Measuring DNS response."))
 		threading.Thread(target=self._fast_dns_worker, args=(providers,), daemon=True).start()
 
 	def _fast_dns_worker(self, providers):
@@ -955,40 +955,40 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _complete_fast_dns(self, results):
 		if self._terminated:
 			return
-		lines = [_("KẾT QUẢ ĐO DNS"), ""]
+		lines = [_("DNS MEASUREMENT RESULTS"), ""]
 		available = []
 		for identifier, name, servers, latency, successes in results:
 			if latency is None:
-				lines.append("- {}: {}".format(name, _("không phản hồi (0/3)")))
+				lines.append("- {}: {}".format(name, _("not responding (0/3)")))
 			else:
 				lines.append("- {} ({}): {} ({}/3)".format(name, servers[0], _("{} ms").format(latency), successes))
 				available.append((successes, latency, identifier, name, servers))
 		dialog = self._active_dialog()
 		if not available:
-			self._set_busy(False, _("Không có DNS nào phản hồi."))
+			self._set_busy(False, _("No DNS providers responded."))
 			if dialog:
-				dialog.show_result("\n".join(lines), _("Không có DNS nào phản hồi."))
-			ui.message(_("Không có DNS công cộng nào phản hồi."))
+				dialog.show_result("\n".join(lines), _("No DNS providers responded."))
+			ui.message(_("No public DNS providers responded."))
 			return
 
 		# Prefer a stable resolver first, then the lower median response time.
 		available.sort(key=lambda item: (-item[0], item[1]))
 		_successes, _latency, provider_id, provider_name, servers = available[0]
-		lines.extend(("", _("Đề xuất: {} ({} và {}).").format(provider_name, servers[0], servers[1]), _("Bạn vẫn cần chọn kết nối và xác nhận trước khi DNS được thay đổi.")))
+		lines.extend(("", _("Recommendation: {} ({} and {}).").format(provider_name, servers[0], servers[1]), _("You still need to choose a connection and confirm before DNS is changed.")))
 		if provider_id not in {provider[0] for provider in _configured_dns_providers()}:
-			status = _("Trợ lý DNS đã được tắt trong khi đang đo.")
+			status = _("The DNS assistant was turned off while measuring.")
 			self._set_busy(False, status)
 			if dialog:
 				dialog.show_result("\n".join(lines), status)
 			ui.message(status)
 			return
 		if dialog:
-			dialog.show_result("\n".join(lines), _("Đã có đề xuất DNS."))
-		ui.message(_("Đã tìm được DNS đề xuất."))
+			dialog.show_result("\n".join(lines), _("DNS recommendation is ready."))
+		ui.message(_("Found a recommended DNS."))
 		self._choose_adapter_then_confirm("applyDns", provider_id)
 
 	def _choose_adapter_then_confirm(self, action_id, provider_id=None):
-		self._set_busy(True, _("Đang tìm kết nối đang hoạt động..."))
+		self._set_busy(True, _("Finding active connections..."))
 		threading.Thread(target=self._adapter_worker, args=(action_id, provider_id), daemon=True).start()
 
 	def _adapter_worker(self, action_id, provider_id):
@@ -997,17 +997,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _finish_choose_adapter(self, action_id, provider_id, adapters):
 		if self._terminated:
 			return
-		self._set_busy(False, _("Sẵn sàng."))
+		self._set_busy(False, _("Ready."))
 		if not adapters:
-			ui.message(_("Không tìm thấy kết nối mạng đang hoạt động."))
+			ui.message(_("Could not find an active network connection."))
 			return
 		adapter = adapters[0]
 		if len(adapters) > 1:
 			labels = [_adapter_label(item) for item in adapters]
 			chooser = wx.SingleChoiceDialog(
 				self._active_dialog() or gui.mainFrame,
-				_("Chọn kết nối sẽ nhận cấu hình DNS IPv4. Không chọn VPN nếu bạn không chắc chắn."),
-				_("Chọn kết nối mạng"),
+				_("Choose the connection that will receive the IPv4 DNS configuration. Do not choose a VPN unless you are sure."),
+				_("Choose network connection"),
 				labels,
 			)
 			gui.mainFrame.prePopup()
@@ -1024,10 +1024,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		available_ids = {action.identifier for action in self._available_actions()}
 		if action_id == "applyDns":
 			if "fastDns" not in available_ids or provider_id not in {provider[0] for provider in _configured_dns_providers()}:
-				ui.message(_("Trợ lý DNS đang bị tắt trong phần cài đặt add-on."))
+				ui.message(_("The DNS assistant is turned off in the add-on settings."))
 				return
 		elif action_id not in available_ids:
-			ui.message(_("Tác vụ này đang bị ẩn trong phần cài đặt add-on."))
+			ui.message(_("This task is hidden in the add-on settings."))
 			return
 		action = ACTION_BY_ID.get(action_id)
 		if action_id == "applyDns":
@@ -1039,14 +1039,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			provider_name, servers = PROVIDER_BY_ID[provider_id]
 			provider_note = ""
 			if provider_id == "quad9":
-				provider_note = _(" Quad9 có bộ lọc bảo mật và có thể chặn một số tên miền.")
+				provider_note = _(" Quad9 provides security filtering and may block some domain names.")
 			message = _(
-				"DNS IPv4 của kết nối '{adapter}' sẽ được thay bằng {provider}: {primary} và {secondary}. "
-				"DNS hiện tại: {currentDns}. "
-				"Điều này không bảo đảm Internet nhanh hơn.{providerNote} Windows sẽ yêu cầu quyền quản trị. Tiếp tục?"
-			).format(adapter=adapter["alias"], provider=provider_name, primary=servers[0], secondary=servers[1], currentDns=adapter["dns"] or _("không xác định"), providerNote=provider_note)
+				"IPv4 DNS for connection '{adapter}' will be replaced with {provider}: {primary} and {secondary}. "
+				"Current DNS: {currentDns}. "
+				"This does not guarantee faster internet.{providerNote} Windows will request administrator permission. Continue?"
+			).format(adapter=adapter["alias"], provider=provider_name, primary=servers[0], secondary=servers[1], currentDns=adapter["dns"] or _("unknown"), providerNote=provider_note)
 		elif action_id == "restoreDhcpDns":
-			message = _("DNS IPv4 thủ công của kết nối '{adapter}' sẽ bị thay bằng DNS tự động từ DHCP. DNS hiện tại: {currentDns}. Windows sẽ yêu cầu quyền quản trị. Tiếp tục?").format(adapter=adapter["alias"], currentDns=adapter["dns"] or _("không xác định"))
+			message = _("The manually configured IPv4 DNS for connection '{adapter}' will be replaced with automatic DNS from DHCP. Current DNS: {currentDns}. Windows will request administrator permission. Continue?").format(adapter=adapter["alias"], currentDns=adapter["dns"] or _("unknown"))
 
 		dialog = wx.MessageDialog(
 			self._active_dialog() or gui.mainFrame,
@@ -1063,16 +1063,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if confirmed:
 			self._launch_elevated_action(action_id, provider_id, adapter)
 		else:
-			ui.message(_("Đã hủy."))
+			ui.message(_("Cancelled."))
 
 	def _launch_elevated_action(self, action_id, provider_id=None, adapter=None):
 		try:
 			script = _elevated_script_for_action(action_id, provider_id, adapter)
 		except (KeyError, TypeError, ValueError):
-			ui.message(_("Thông tin tác vụ không hợp lệ; tác vụ chưa được chạy."))
+			ui.message(_("Task information is invalid; the task was not run."))
 			return
-		self._set_busy(True, _("Windows sẽ yêu cầu quyền quản trị. Đang chờ hoàn tất..."))
-		ui.message(_("Windows sẽ yêu cầu quyền quản trị. Đang chạy tác vụ."))
+		self._set_busy(True, _("Windows will request administrator permission. Waiting for completion..."))
+		ui.message(_("Windows will request administrator permission. Running the task."))
 		threading.Thread(
 			target=self._elevated_action_worker,
 			args=(action_id, provider_id, adapter, script),
@@ -1084,14 +1084,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			exit_code, launch_error = _run_elevated_powershell(script)
 			report, succeeded = _post_action_report(action_id, provider_id, adapter, exit_code, launch_error)
 		except Exception as error:
-			report = _("Không thể kiểm tra kết quả tác vụ: {}.").format(error)
+			report = _("Could not verify the task result: {}.").format(error)
 			succeeded = False
 		wx.CallAfter(self._finish_elevated_action, action_id, report, succeeded)
 
 	def _finish_elevated_action(self, action_id, report, succeeded):
 		if self._terminated:
 			return
-		status = _("Đã hoàn tất tác vụ.") if succeeded else _("Tác vụ không hoàn tất.")
+		status = _("Task complete.") if succeeded else _("Task did not complete.")
 		self._set_busy(False, status)
 		dialog = self._active_dialog()
 		if dialog:

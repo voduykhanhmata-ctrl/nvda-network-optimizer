@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Network Optimization and Diagnostics</title>
+</head>
+<body>
+  <h1>Network Optimization and Diagnostics</h1>
+  <p>This English and Vietnamese NVDA add-on turns useful parts of a network-optimization batch file into clearly described tasks with visible results and explicit confirmation.</p>
+  <p><strong>Author:</strong> Võ Duy Khánh</p>
+
+  <h2>Opening the add-on</h2>
+  <p>In NVDA, open the Tools menu and choose “Network Optimization and Diagnostics…”. Start with “Quick Check”; this task only reads information and does not change settings. To use a keyboard shortcut, assign a gesture to “Open Network Optimization and Diagnostics” in NVDA Input Gestures.</p>
+
+  <h2>Customizing the add-on</h2>
+  <p>Open NVDA &gt; Preferences &gt; Settings, then select “Network Optimization and Diagnostics”. This page lets you enable or disable the DNS assistant, choose Cloudflare, Google Public DNS, and/or Quad9 for testing, and show or hide the Maintenance, Advanced, and Stronger Repair groups. Changing these check boxes only controls which features are shown; it never runs a network command automatically.</p>
+  <p>You can also open this page using the “Customize add-on” button in the add-on window, or assign a gesture to “Open Network Optimization and Diagnostics settings” in Input Gestures. If the Tools-menu item is hidden, the settings page remains available through Preferences &gt; Settings.</p>
+
+  <h2>Automatically selecting DNS</h2>
+  <p>The add-on tests each enabled public DNS service — Cloudflare, Google Public DNS, and/or Quad9 — three times. It favors consistent responses before comparing response times, then asks you to choose a network connection and confirm before changing that connection’s IPv4 DNS servers.</p>
+  <p>Quad9 uses malicious-domain filtering, so it can occasionally block a legitimate website. The add-on reminds you of this when Quad9 is the recommended choice.</p>
+  <p>Test results show the responsiveness of a DNS server from the current connection. They do not measure total Internet speed and do not guarantee faster downloads. The add-on never changes DNS automatically, does not disable IPv6, and does not modify a VPN unless you explicitly select the VPN connection. Depending on the network, Windows may still use IPv6 DNS or VPN DNS.</p>
+  <p>Use “Restore Automatic DNS (DHCP)” to remove manually configured DNS servers and use the DNS supplied by your router or Internet provider again. This operation only restores DNS to DHCP; it does not change the IP address or gateway.</p>
+
+  <h2>Other tasks</h2>
+  <ul>
+    <li>Clear DNS Cache: refreshes temporary DNS records.</li>
+    <li>Clear ARP Cache: use only for local-network problems; it can briefly slow down LAN connectivity.</li>
+    <li>Set TCP Auto-Tuning to Normal: restores Windows TCP Auto-Tuning to Normal; it does not guarantee faster Internet access.</li>
+    <li>Reset WinHTTP Proxy: do not use this if your workplace or school requires a proxy.</li>
+    <li>Reset Winsock: use only when necessary; VPN or security software may be affected, and Windows must be restarted.</li>
+  </ul>
+
+  <h2>Safety</h2>
+  <p>Every task that changes the system displays a warning and requests Windows administrator permission. The add-on does not run automatically during installation or when NVDA starts. It has no free-form command box; administrator-level code only uses a fixed list of operations and Windows PowerShell components already included with Windows. The add-on does not automatically reset the firewall, release or renew IP addresses, or use TCP Chimney because that feature is obsolete. The DNS report retains the measurement from before the change and reads the DNS configuration again after it is applied.</p>
+
+  <h2>Troubleshooting</h2>
+  <p>If no active connection is available to select, open “Windows network settings” from the add-on window and check Wi-Fi or Ethernet first. If you are controlling the computer remotely, do not use stronger network-reset tasks because they can disconnect the remote session.</p>
+
+  <h2>License</h2>
+  <p>This add-on is released under the MIT License. Copyright © 2026 Võ Duy Khánh.</p>
+</body>
+</html>
