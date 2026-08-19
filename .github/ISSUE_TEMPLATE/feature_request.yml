@@ -1,0 +1,31 @@
+name: Feature request / Đề xuất tính năng
+description: Suggest an accessible, safe improvement for the add-on.
+title: "[Feature]: "
+labels: ["enhancement", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for sharing an idea. Please describe the user benefit first.
+        Cảm ơn bạn đã gửi ý tưởng. Hãy mô tả lợi ích cho người dùng trước.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve / Vấn đề cần giải quyết
+      description: Who would benefit, and in what situation?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution / Giải pháp đề xuất
+      description: Describe how the feature should work for NVDA speech and braille users.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety / An toàn
+      options:
+        - label: This proposal does not require an automatic network configuration change.
+          required: true

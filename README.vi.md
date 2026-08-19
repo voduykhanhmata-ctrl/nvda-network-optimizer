@@ -43,6 +43,13 @@ Từ cửa sổ add-on cũng có nút **Tùy chỉnh add-on** dẫn thẳng tớ
 
 Đo độ phản hồi DNS không đồng nghĩa với tăng tốc tải xuống. Các hồ sơ DNS dùng địa chỉ IPv4; add-on không tắt IPv6 và Windows/VPN có thể vẫn dùng DNS khác. Không sử dụng các thao tác khắc phục mạnh nếu bạn đang kết nối qua RDP, VPN hoặc mạng công ty mà chưa biết cấu hình đang dùng.
 
+## Tham gia dự án
+
+- Hãy thử [bản phát hành mới nhất](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/releases/latest) và báo lỗi có thể tái hiện bằng biểu mẫu Báo lỗi.
+- Bắt đầu từ việc dễ làm có nhãn [good first issue](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/labels/good%20first%20issue) hoặc [help wanted](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/labels/help%20wanted).
+- Dùng [Discussions](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/discussions) để hỏi đáp, gửi kết quả thử nghiệm và thảo luận ý tưởng trước khi tạo Issue.
+- Đóng góp về khả năng truy cập, tài liệu, dịch thuật và kiểm thử cũng quan trọng như thay đổi mã nguồn.
+
 ## Đóng góp
 
 Mọi đóng góp đều được chào đón. Hãy đọc [CONTRIBUTING.vi.md](CONTRIBUTING.vi.md) trước khi mở Issue hoặc Pull Request. Hướng dẫn tiếng Anh nằm tại [CONTRIBUTING.md](CONTRIBUTING.md).

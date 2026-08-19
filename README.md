@@ -43,6 +43,13 @@ The add-on window also contains a **Customize add-on** button that opens this pa
 
 DNS responsiveness is not the same as download speed. DNS profiles use IPv4 addresses; the add-on does not disable IPv6, and Windows or a VPN may still use another DNS service. Do not use stronger repair operations while connected through RDP, a VPN, or an organization-managed network unless you understand the current configuration.
 
+## Get involved
+
+- Try the [latest release](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/releases/latest) and report reproducible problems with the Bug Report form.
+- Start with an approachable [good first issue](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/labels/good%20first%20issue) or a task marked [help wanted](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/labels/help%20wanted).
+- Use [Discussions](https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/discussions) for questions, testing feedback, and feature ideas before opening an issue.
+- Accessibility, documentation, translation, and testing contributions are as valuable as code changes.
+
 ## Contributing
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. A Vietnamese guide is available in [CONTRIBUTING.vi.md](CONTRIBUTING.vi.md).

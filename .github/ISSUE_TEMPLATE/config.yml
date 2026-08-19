@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions, testing feedback, and ideas / Hỏi đáp, kết quả thử nghiệm và ý tưởng
+    url: https://github.com/voduykhanhmata-ctrl/nvda-network-optimizer/discussions
+    about: Use Discussions for open-ended conversation before creating an issue.

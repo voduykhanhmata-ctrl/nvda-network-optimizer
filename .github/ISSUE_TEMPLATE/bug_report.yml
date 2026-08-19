@@ -1,0 +1,57 @@
+name: Bug report / Báo lỗi
+description: Report a reproducible problem without sensitive information.
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve NVDA Network Optimizer.
+        Do not include passwords, access tokens, public IP addresses, or private network details.
+        Cảm ơn bạn đã giúp cải thiện add-on. Không đăng mật khẩu, mã truy cập, địa chỉ IP công cộng hoặc thông tin mạng riêng tư.
+  - type: input
+    id: addon-version
+    attributes:
+      label: Add-on version / Phiên bản add-on
+      placeholder: "1.3.0"
+    validations:
+      required: true
+  - type: input
+    id: nvda-version
+    attributes:
+      label: NVDA version / Phiên bản NVDA
+      placeholder: "2026.1.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: connection-type
+    attributes:
+      label: Connection type / Loại kết nối
+      options:
+        - Wi-Fi
+        - Ethernet
+        - VPN
+        - Other / Khác
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / Các bước tái hiện
+      description: List the exact actions that lead to the problem.
+      placeholder: "1. Open...\n2. Choose...\n3. Run..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result / Kết quả mong đợi
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result / Kết quả thực tế
+      description: Include the message spoken by NVDA if useful, but remove private data.
+    validations:
+      required: true
