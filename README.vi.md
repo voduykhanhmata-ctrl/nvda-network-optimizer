@@ -11,6 +11,7 @@ NVDA Network Optimizer là add-on NVDA hỗ trợ tiếng Việt và tiếng Anh
 - Kiểm tra nhanh, chỉ đọc thông tin mạng và đo độ phản hồi DNS.
 - So sánh Cloudflare, Google Public DNS và Quad9, sau đó **chỉ đề xuất** DNS IPv4 có độ phản hồi tốt nhất.
 - Người dùng tự chọn kết nối mạng, xem DNS hiện tại và xác nhận trước khi DNS thay đổi; báo cáo giữ kết quả đo trước/sau.
+- Có thể sao chép kết quả đang hiển thị hoặc lưu thành tệp văn bản UTF-8 tại nơi tự chọn; báo cáo không bao giờ tự được tải lên.
 - Các thao tác có thể gây ảnh hưởng như đặt lại Winsock, proxy hoặc xóa ARP cache được tách riêng, giải thích rõ, yêu cầu xác nhận và quyền quản trị Windows.
 - Có trang **Tối ưu và chẩn đoán mạng** trong Cài đặt NVDA để bật/tắt từng nhóm tác vụ, chọn DNS công cộng được đo và ẩn/hiện lối tắt ở menu Công cụ.
 - Không bao gồm thao tác đặt lại tường lửa, release/renew IP, đặt lại IPv4/IPv6 hàng loạt hoặc TCP Chimney từ batch gốc vì chúng có thể làm mất cấu hình đang hoạt động hoặc đã lỗi thời.
@@ -22,7 +23,7 @@ Giao diện, thông tin add-on và Trợ giúp có tiếng Anh lẫn tiếng Vi�
 
 ## Đóng gói
 
-Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.2.0.nvda-addon`.
+Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.3.0.nvda-addon`.
 
 ## Cài đặt
 

@@ -206,6 +206,9 @@ msgstr "&Chạy tác vụ"
 msgid "&Copy results"
 msgstr "&Sao chép kết quả"
 
+msgid "&Save results..."
+msgstr "&Lưu kết quả..."
+
 msgid "&Customize add-on"
 msgstr "&Tùy chỉnh add-on"
 
@@ -226,6 +229,21 @@ msgstr "Đã sao chép kết quả."
 
 msgid "Cannot open the clipboard."
 msgstr "Không thể mở bảng nhớ tạm."
+
+msgid "No results to save."
+msgstr "Chưa có kết quả để lưu."
+
+msgid "Save results"
+msgstr "Lưu kết quả"
+
+msgid "Text files (*.txt)|*.txt|All files (*.*)|*.*"
+msgstr "Tệp văn bản (*.txt)|*.txt|Tất cả tệp (*.*)|*.*"
+
+msgid "Could not save the results."
+msgstr "Không thể lưu kết quả."
+
+msgid "Results saved."
+msgstr "Đã lưu kết quả."
 
 msgid "Cannot open Windows network settings."
 msgstr "Không thể mở cài đặt mạng Windows."

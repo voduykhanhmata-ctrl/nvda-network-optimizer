@@ -11,6 +11,7 @@ NVDA Network Optimizer is an NVDA add-on for inspecting and diagnosing network c
 - Run a quick, read-only check of network information and DNS responsiveness.
 - Test Cloudflare, Google Public DNS, and Quad9, then **suggest** the most responsive enabled IPv4 DNS service.
 - Choose the network connection yourself, review its current DNS servers, and confirm before any DNS change. The report retains results from before and after the operation.
+- Copy visible results or save them as a UTF-8 text file in a location you choose; reports are never uploaded automatically.
 - Keep potentially disruptive operations, such as Winsock reset, proxy reset, and ARP-cache clearing, separate with clear explanations, confirmation, and a Windows administrator prompt.
 - Use the **Network Optimization and Diagnostics** page in NVDA Settings to enable or disable individual task groups, choose which public DNS services are measured, and show or hide the shortcut in the Tools menu.
 - Do not include firewall resets, IP release/renew operations, bulk IPv4/IPv6 resets, or TCP Chimney from the original batch file. These actions can remove a working configuration or are obsolete.
@@ -22,7 +23,7 @@ The add-on interface, metadata, and Help are available in English and Vietnamese
 
 ## Building
 
-Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.2.0.nvda-addon`.
+Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.3.0.nvda-addon`.
 
 ## Installation
 

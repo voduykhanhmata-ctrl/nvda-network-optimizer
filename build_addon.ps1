@@ -3,8 +3,8 @@ param()
 
 $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$outputPath = Join-Path $projectRoot "NetworkOptimizer-1.2.0.nvda-addon"
-$temporaryZipPath = Join-Path $projectRoot "NetworkOptimizer-1.2.0.zip"
+$outputPath = Join-Path $projectRoot "NetworkOptimizer-1.3.0.nvda-addon"
+$temporaryZipPath = Join-Path $projectRoot "NetworkOptimizer-1.3.0.zip"
 $translationCompiler = Join-Path $projectRoot "compile_translations.py"
 $translationSource = Join-Path $projectRoot "locale\vi\LC_MESSAGES\nvda.po"
 $translationBinary = Join-Path $projectRoot "locale\vi\LC_MESSAGES\nvda.mo"

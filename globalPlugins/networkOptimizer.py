@@ -659,10 +659,11 @@ class NetworkOptimizerDialog(wx.Dialog):
 		buttons = wx.BoxSizer(wx.HORIZONTAL)
 		self._run_button = wx.Button(self, label=_("&Run task"))
 		self._copy_button = wx.Button(self, label=_("&Copy results"))
+		self._save_button = wx.Button(self, label=_("&Save results..."))
 		self._addon_settings_button = wx.Button(self, label=_("&Customize add-on"))
 		self._settings_button = wx.Button(self, label=_("Open Windows &network settings"))
 		self._close_button = wx.Button(self, wx.ID_CLOSE, label=_("&Close"))
-		for button in (self._run_button, self._copy_button, self._addon_settings_button, self._settings_button, self._close_button):
+		for button in (self._run_button, self._copy_button, self._save_button, self._addon_settings_button, self._settings_button, self._close_button):
 			buttons.Add(button, 0, wx.ALL, 5)
 		outer.Add(buttons, 0, wx.ALL | wx.ALIGN_RIGHT, 5)
 
@@ -673,6 +674,7 @@ class NetworkOptimizerDialog(wx.Dialog):
 		self._choice.Bind(wx.EVT_CHOICE, self._on_choice)
 		self._run_button.Bind(wx.EVT_BUTTON, self._on_run)
 		self._copy_button.Bind(wx.EVT_BUTTON, self._on_copy)
+		self._save_button.Bind(wx.EVT_BUTTON, self._on_save)
 		self._addon_settings_button.Bind(wx.EVT_BUTTON, self._on_addon_settings)
 		self._settings_button.Bind(wx.EVT_BUTTON, self._on_settings)
 		self._close_button.Bind(wx.EVT_BUTTON, self._on_close)
@@ -704,6 +706,8 @@ class NetworkOptimizerDialog(wx.Dialog):
 	def set_busy(self, busy, status=None):
 		self._choice.Enable(not busy and bool(self._actions))
 		self._run_button.Enable(not busy and bool(self._actions))
+		self._copy_button.Enable(not busy)
+		self._save_button.Enable(not busy)
 		self._addon_settings_button.Enable(not busy)
 		self._settings_button.Enable(not busy)
 		if status:
@@ -747,6 +751,32 @@ class NetworkOptimizerDialog(wx.Dialog):
 			ui.message(_("Results copied."))
 		else:
 			ui.message(_("Cannot open the clipboard."))
+
+	def _on_save(self, _event):
+		text = self._result.GetValue()
+		if not text:
+			ui.message(_("No results to save."))
+			return
+		dialog = wx.FileDialog(
+			self,
+			message=_("Save results"),
+			defaultFile="network-optimizer-results.txt",
+			wildcard=_("Text files (*.txt)|*.txt|All files (*.*)|*.*"),
+			style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
+		)
+		try:
+			if dialog.ShowModal() != wx.ID_OK:
+				return
+			path = dialog.GetPath()
+		finally:
+			dialog.Destroy()
+		try:
+			with open(path, "w", encoding="utf-8-sig", newline="\r\n") as report_file:
+				report_file.write(text)
+		except OSError:
+			ui.message(_("Could not save the results."))
+		else:
+			ui.message(_("Results saved."))
 
 	def _on_addon_settings(self, _event):
 		self._plugin.open_addon_settings()
