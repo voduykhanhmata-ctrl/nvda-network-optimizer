@@ -1,0 +1,81 @@
+name: Validate NVDA add-on
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check source and compile translations
+        shell: pwsh
+        run: |
+          python -m py_compile globalPlugins\networkOptimizer.py compile_translations.py
+          python compile_translations.py
+          python -m unittest discover -s tests -v
+
+      - name: Build add-on
+        shell: pwsh
+        run: .\build_addon.ps1
+
+      - name: Validate release package
+        shell: pwsh
+        run: |
+          @'
+          import configparser
+          import gettext
+          import zipfile
+          from pathlib import Path
+
+          manifest = Path("manifest.ini").read_text(encoding="utf-8-sig")
+          version = next(
+              line.split("=", 1)[1].strip()
+              for line in manifest.splitlines()
+              if line.startswith("version =")
+          )
+          package = Path(f"NetworkOptimizer-{version}.nvda-addon")
+          required = {
+              "manifest.ini",
+              "LICENSE",
+              "globalPlugins/networkOptimizer.py",
+              "doc/en/readme.html",
+              "doc/vi/readme.html",
+              "locale/vi/manifest.ini",
+              "locale/vi/LC_MESSAGES/nvda.mo",
+              "locale/vi/LC_MESSAGES/nvda.po",
+          }
+          with zipfile.ZipFile(package) as archive:
+              names = {item.filename.replace("\\", "/") for item in archive.infolist()}
+              missing = required - names
+              if missing:
+                  raise SystemExit(f"Missing package files: {sorted(missing)}")
+              unwanted = [name for name in names if "__pycache__" in name or name.endswith(".pyc")]
+              if unwanted:
+                  raise SystemExit(f"Unexpected Python cache files: {unwanted}")
+              with archive.open("locale/vi/LC_MESSAGES/nvda.mo") as stream:
+                  translations = gettext.GNUTranslations(stream)
+              if translations.gettext("Network Optimizer and Diagnostics") != "Tối ưu và chẩn đoán mạng":
+                  raise SystemExit("Vietnamese translation could not be loaded.")
+          parser = configparser.ConfigParser(interpolation=None)
+          parser.read_string("[addon]\n" + manifest)
+          if parser["addon"]["version"] != version:
+              raise SystemExit("Package manifest version mismatch.")
+          print(f"Validated {package}")
+          '@ | python
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nvda-addon-package
+          path: NetworkOptimizer-*.nvda-addon
+          if-no-files-found: error

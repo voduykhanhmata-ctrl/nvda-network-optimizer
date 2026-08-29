@@ -3,8 +3,16 @@ param()
 
 $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$outputPath = Join-Path $projectRoot "NetworkOptimizer-1.3.0.nvda-addon"
-$temporaryZipPath = Join-Path $projectRoot "NetworkOptimizer-1.3.0.zip"
+$manifestPath = Join-Path $projectRoot "manifest.ini"
+$manifestVersionLine = Get-Content -LiteralPath $manifestPath |
+	Where-Object { $_ -match '^version\s*=' } |
+	Select-Object -First 1
+if (-not $manifestVersionLine -or $manifestVersionLine -notmatch '^version\s*=\s*([0-9]+\.[0-9]+(?:\.[0-9]+)?)\s*$') {
+	throw "Could not read a valid add-on version from manifest.ini."
+}
+$addonVersion = $Matches[1]
+$outputPath = Join-Path $projectRoot "NetworkOptimizer-$addonVersion.nvda-addon"
+$temporaryZipPath = Join-Path $projectRoot "NetworkOptimizer-$addonVersion.zip"
 $translationCompiler = Join-Path $projectRoot "compile_translations.py"
 $translationSource = Join-Path $projectRoot "locale\vi\LC_MESSAGES\nvda.po"
 $translationBinary = Join-Path $projectRoot "locale\vi\LC_MESSAGES\nvda.mo"
@@ -42,7 +50,7 @@ if (Test-Path -LiteralPath $temporaryZipPath) {
 Add-Type -AssemblyName System.IO.Compression -ErrorAction Stop
 Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
 
-$manifestFile = Get-Item -LiteralPath (Join-Path $projectRoot "manifest.ini")
+$manifestFile = Get-Item -LiteralPath $manifestPath
 $licenseFile = Get-Item -LiteralPath (Join-Path $projectRoot "LICENSE")
 $filesToArchive = @($manifestFile, $licenseFile)
 foreach ($folderName in @("globalPlugins", "doc", "locale")) {

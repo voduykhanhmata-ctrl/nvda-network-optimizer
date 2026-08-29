@@ -23,7 +23,7 @@ The add-on interface, metadata, and Help are available in English and Vietnamese
 
 ## Building
 
-Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.3.0.nvda-addon`.
+Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.3.1.nvda-addon`.
 
 ## Installation
 

@@ -484,24 +484,46 @@ def _post_action_report(action_id, provider_id, adapter, exit_code, launch_error
 
 	if action_id == "applyDns":
 		provider_name, servers = PROVIDER_BY_ID[provider_id]
-		_code, output = _run_process(
+		readback_code, output = _run_process(
 			["netsh.exe", "interface", "ipv4", "show", "dnsservers", "name={}".format(adapter["index"])],
 			timeout=12,
 		)
+		request_summary = _("Requested {}: {} and {} for connection '{}'.").format(
+			provider_name,
+			servers[0],
+			servers[1],
+			adapter["alias"],
+		)
+		if readback_code != 0 or not output.strip():
+			return "\n".join((
+				_("DNS APPLICATION RESULT"),
+				request_summary,
+				"",
+				_("Windows completed the requested DNS task, but the current DNS configuration could not be verified (read-back code {}). Check the connection before making another change.").format(readback_code),
+				_trim_output(output),
+			)), None
 		return "\n".join((
 			_("DNS APPLICATION RESULT"),
-			_("Requested {}: {} and {} for connection '{}'.").format(provider_name, servers[0], servers[1], adapter["alias"]),
+			request_summary,
 			"",
 			_("Configuration read back:"),
 			_trim_output(output),
 		)), True
 	if action_id == "restoreDhcpDns":
-		_code, output = _run_process(
+		readback_code, output = _run_process(
 			["netsh.exe", "interface", "ipv4", "show", "dnsservers", "name={}".format(adapter["index"])],
 			timeout=12,
 		)
+		request_summary = _("Requested restoration of automatic DNS (DHCP) for '{}'.").format(adapter["alias"])
+		if readback_code != 0 or not output.strip():
+			return "\n".join((
+				request_summary,
+				"",
+				_("Windows completed the requested DNS task, but the current DNS configuration could not be verified (read-back code {}). Check the connection before making another change.").format(readback_code),
+				_trim_output(output),
+			)), None
 		return "\n".join((
-			_("Requested restoration of automatic DNS (DHCP) for '{}'.").format(adapter["alias"]),
+			request_summary,
 			"",
 			_("Configuration read back:"),
 			_trim_output(output),
@@ -633,7 +655,7 @@ class NetworkOptimizerDialog(wx.Dialog):
 		outer = wx.BoxSizer(wx.VERTICAL)
 		intro = wx.StaticText(
 			self,
-			label=_("Choose a task. Basic tasks are safe; all other tasks explain their effects and require confirmation before they change network settings."),
+			label=_("Choose a task. Read-only tasks do not change settings. Tasks that can change network settings explain their effects and require confirmation."),
 		)
 		intro.Wrap(620)
 		outer.Add(intro, 0, wx.ALL | wx.EXPAND, 10)
@@ -1121,7 +1143,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _finish_elevated_action(self, action_id, report, succeeded):
 		if self._terminated:
 			return
-		status = _("Task complete.") if succeeded else _("Task did not complete.")
+		if succeeded is True:
+			status = _("Task complete.")
+		elif succeeded is None:
+			status = _("Task ran, but the result could not be verified.")
+		else:
+			status = _("Task did not complete.")
 		self._set_busy(False, status)
 		dialog = self._active_dialog()
 		if dialog:

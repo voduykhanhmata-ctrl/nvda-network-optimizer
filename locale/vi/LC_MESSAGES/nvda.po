@@ -131,6 +131,9 @@ msgstr "Cấu hình đọc lại:"
 msgid "Requested restoration of automatic DNS (DHCP) for '{}'."
 msgstr "Đã yêu cầu khôi phục DNS tự động (DHCP) cho '{}'."
 
+msgid "Windows completed the requested DNS task, but the current DNS configuration could not be verified (read-back code {}). Check the connection before making another change."
+msgstr "Windows đã hoàn tất tác vụ DNS được yêu cầu, nhưng không thể xác minh cấu hình DNS hiện tại (mã đọc lại {}). Hãy kiểm tra kết nối trước khi thực hiện thay đổi khác."
+
 msgid "Reset Winsock. Restart Windows before evaluating the result."
 msgstr "Đã đặt lại Winsock. Hãy khởi động lại Windows trước khi đánh giá kết quả."
 
@@ -188,8 +191,8 @@ msgstr "Hiển thị khắc phục &mạnh: Đặt lại Winsock (cần khởi �
 msgid "Select at least one DNS provider, or turn off the DNS assistant."
 msgstr "Hãy chọn ít nhất một nhà cung cấp DNS, hoặc bỏ chọn Trợ lý DNS."
 
-msgid "Choose a task. Basic tasks are safe; all other tasks explain their effects and require confirmation before they change network settings."
-msgstr "Chọn một tác vụ. Tác vụ Cơ bản là an toàn; các tác vụ khác luôn giải thích tác động và yêu cầu xác nhận trước khi thay đổi mạng."
+msgid "Choose a task. Read-only tasks do not change settings. Tasks that can change network settings explain their effects and require confirmation."
+msgstr "Chọn một tác vụ. Tác vụ chỉ đọc không thay đổi cài đặt. Tác vụ có thể thay đổi mạng sẽ giải thích tác động và yêu cầu xác nhận."
 
 msgid "Task:"
 msgstr "Tác vụ:"
@@ -379,6 +382,9 @@ msgstr "Không thể kiểm tra kết quả tác vụ: {}."
 
 msgid "Task complete."
 msgstr "Đã hoàn tất tác vụ."
+
+msgid "Task ran, but the result could not be verified."
+msgstr "Tác vụ đã chạy nhưng không thể xác minh kết quả."
 
 msgid "Task did not complete."
 msgstr "Tác vụ không hoàn tất."

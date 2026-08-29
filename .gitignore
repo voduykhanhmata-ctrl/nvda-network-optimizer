@@ -1,3 +1,4 @@
 NetworkOptimizer-*.nvda-addon
 __pycache__/
 *.pyc
+load.txt

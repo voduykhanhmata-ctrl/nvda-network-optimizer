@@ -23,7 +23,7 @@ Giao diện, thông tin add-on và Trợ giúp có tiếng Anh lẫn tiếng Vi�
 
 ## Đóng gói
 
-Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.3.0.nvda-addon`.
+Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.3.1.nvda-addon`.
 
 ## Cài đặt
 
