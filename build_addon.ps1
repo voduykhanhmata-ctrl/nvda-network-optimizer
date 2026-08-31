@@ -6,14 +6,14 @@ param()
 $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $manifestPath = Join-Path $projectRoot "manifest.ini"
-$manifestText = Get-Content -Raw -LiteralPath $manifestPath
+$manifestText = Get-Content -Raw -Encoding UTF8 -LiteralPath $manifestPath
 if ($manifestText -notmatch '(?m)^name\s*=\s*networkOptimizer\s*$') {
 	throw "The stable add-on ID must remain networkOptimizer."
 }
 if ($manifestText -notmatch '(?m)^author\s*=\s*"Võ Duy Khánh"\s*$') {
 	throw "The manifest author must be Võ Duy Khánh."
 }
-$manifestVersionLine = Get-Content -LiteralPath $manifestPath |
+$manifestVersionLine = Get-Content -Encoding UTF8 -LiteralPath $manifestPath |
 	Where-Object { $_ -match '^version\s*=' } |
 	Select-Object -First 1
 if (-not $manifestVersionLine -or $manifestVersionLine -notmatch '^version\s*=\s*([0-9]+\.[0-9]+(?:\.[0-9]+)?)\s*$') {
@@ -61,7 +61,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
 
 $manifestFile = Get-Item -LiteralPath $manifestPath
 $licenseFile = Get-Item -LiteralPath (Join-Path $projectRoot "LICENSE")
-$licenseText = Get-Content -Raw -LiteralPath $licenseFile.FullName
+$licenseText = Get-Content -Raw -Encoding UTF8 -LiteralPath $licenseFile.FullName
 if ($licenseText -notmatch '(?m)^Copyright \(C\) 2026 Võ Duy Khánh$') {
 	throw "The project copyright owner must be Võ Duy Khánh."
 }

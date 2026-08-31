@@ -38,6 +38,11 @@ class ReleaseMetadataTests(unittest.TestCase):
 				self.assertIn("SPDX-License-Identifier: GPL-2.0-or-later", text)
 				self.assertIn("Copyright (C) 2026 Võ Duy Khánh", text)
 
+	def test_build_reads_release_metadata_as_utf8(self):
+		build_script = (ROOT / "build_addon.ps1").read_text(encoding="utf-8-sig")
+		self.assertGreaterEqual(build_script.count("Get-Content -Raw -Encoding UTF8"), 2)
+		self.assertIn("Get-Content -Encoding UTF8 -LiteralPath $manifestPath", build_script)
+
 	def test_public_documentation_names_the_author(self):
 		for relative_path in (
 			"README.md", "README.vi.md",
