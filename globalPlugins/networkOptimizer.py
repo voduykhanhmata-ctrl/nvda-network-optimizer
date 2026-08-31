@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Võ Duy Khánh
 """An accessible, deliberately conservative network utility for NVDA."""
 
 from __future__ import annotations

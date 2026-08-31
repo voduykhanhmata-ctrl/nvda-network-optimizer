@@ -23,11 +23,17 @@ The add-on interface, metadata, and Help are available in English and Vietnamese
 
 ## Building
 
-Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.3.1.nvda-addon`.
+Run `build_addon.ps1` in PowerShell from the project folder. It creates `NetworkOptimizer-1.3.2.nvda-addon`.
 
 ## Installation
 
 Open the `.nvda-addon` file, accept the installation in NVDA, and restart NVDA if requested. The add-on targets NVDA 2026.1.
+
+## Automatic updates
+
+After Network Optimizer is published in the official NVDA Add-on Store, NVDA can manage its updates securely using the stable add-on ID `networkOptimizer`. Open **NVDA → Preferences → Settings → Add-on Store**, then set **Automatic updates** to **Update Automatically**. NVDA will download compatible Store releases in the background and ask you to restart when an update is ready.
+
+A locally installed test package cannot receive a Store-managed update until this add-on and the newer version have been published in the Store. Network Optimizer does not include a separate downloader or silently install files from GitHub.
 
 ## Configuring and finding the add-on
 
@@ -56,4 +62,4 @@ Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 ## License
 
-This project is released under the [MIT License](LICENSE). Copyright © 2026 Võ Duy Khánh.
+This project is free software released under the [GNU General Public License version 2 or later](LICENSE) (`GPL-2.0-or-later`). Copyright © 2026 Võ Duy Khánh.

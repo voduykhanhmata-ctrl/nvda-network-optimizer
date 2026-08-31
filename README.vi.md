@@ -23,11 +23,17 @@ Giao diện, thông tin add-on và Trợ giúp có tiếng Anh lẫn tiếng Vi�
 
 ## Đóng gói
 
-Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.3.1.nvda-addon`.
+Chạy `build_addon.ps1` trong thư mục dự án bằng PowerShell. Kết quả là `NetworkOptimizer-1.3.2.nvda-addon`.
 
 ## Cài đặt
 
 Mở tệp `.nvda-addon`, chấp nhận cài đặt trong NVDA, rồi khởi động lại NVDA nếu được yêu cầu. Add-on hướng tới NVDA 2026.1.
+
+## Cập nhật tự động
+
+Sau khi Network Optimizer được phát hành trong NVDA Add-on Store chính thức, NVDA có thể quản lý cập nhật an toàn dựa trên định danh add-on ổn định `networkOptimizer`. Mở **NVDA → Tùy chọn → Cài đặt → Add-on Store**, rồi đặt **Cập nhật tự động** thành **Tự động cập nhật**. NVDA sẽ tải bản tương thích từ Store trong nền và yêu cầu khởi động lại khi bản cập nhật đã sẵn sàng.
+
+Gói thử nghiệm được cài trực tiếp từ máy chỉ nhận được cập nhật do Store quản lý sau khi add-on và phiên bản mới hơn đã được phát hành trong Store. Network Optimizer không có bộ tải riêng và không tự âm thầm cài tệp từ GitHub.
 
 ## Tùy chỉnh và tìm add-on
 
@@ -56,4 +62,4 @@ Mọi đóng góp đều được chào đón. Hãy đọc [CONTRIBUTING.vi.md](
 
 ## Giấy phép
 
-Dự án được phát hành theo [MIT License](LICENSE). Bản quyền © 2026 Võ Duy Khánh.
+Dự án là phần mềm tự do được phát hành theo [GNU General Public License phiên bản 2 hoặc mới hơn](LICENSE) (`GPL-2.0-or-later`). Bản quyền © 2026 Võ Duy Khánh.

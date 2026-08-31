@@ -24,4 +24,4 @@ Thank you for helping improve NVDA Network Optimizer. The project is authored by
 3. Explain what changed, why it is useful, and how you tested it.
 4. Keep the pull request focused; use a separate pull request for unrelated changes.
 
-By contributing, you agree that your contribution may be distributed under this project's [MIT License](LICENSE).
+By contributing, you agree that your contribution may be distributed under this project's [GNU General Public License version 2 or later](LICENSE) (`GPL-2.0-or-later`).

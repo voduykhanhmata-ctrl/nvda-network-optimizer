@@ -24,4 +24,4 @@ Cảm ơn bạn đã giúp cải thiện NVDA Network Optimizer. Dự án do Võ
 3. Giải thích thay đổi là gì, vì sao hữu ích và cách bạn đã kiểm tra.
 4. Giữ Pull Request tập trung; dùng Pull Request khác cho các thay đổi không liên quan.
 
-Khi đóng góp, bạn đồng ý rằng phần đóng góp của mình có thể được phát hành theo [MIT License](LICENSE) của dự án.
+Khi đóng góp, bạn đồng ý rằng phần đóng góp của mình có thể được phát hành theo [GNU General Public License phiên bản 2 hoặc mới hơn](LICENSE) (`GPL-2.0-or-later`) của dự án.

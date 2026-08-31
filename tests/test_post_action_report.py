@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Võ Duy Khánh
 import ast
 import unittest
 from pathlib import Path

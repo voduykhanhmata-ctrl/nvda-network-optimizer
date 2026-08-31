@@ -1,3 +1,4 @@
+# Copyright (C) 2026 Võ Duy Khánh
 name: Validate NVDA add-on
 
 on:
@@ -35,6 +36,7 @@ jobs:
           @'
           import configparser
           import gettext
+          import re
           import zipfile
           from pathlib import Path
 
@@ -63,14 +65,26 @@ jobs:
               unwanted = [name for name in names if "__pycache__" in name or name.endswith(".pyc")]
               if unwanted:
                   raise SystemExit(f"Unexpected Python cache files: {unwanted}")
+              license_text = archive.read("LICENSE").decode("utf-8")
+              if "GNU GENERAL PUBLIC LICENSE" not in license_text:
+                  raise SystemExit("The package does not contain the GNU GPL license text.")
+              normalized_license = " ".join(license_text.split())
+              if "either version 2 of the License, or (at your option) any later version" not in normalized_license:
+                  raise SystemExit("The package license does not grant GPL version 2 or later.")
               with archive.open("locale/vi/LC_MESSAGES/nvda.mo") as stream:
                   translations = gettext.GNUTranslations(stream)
               if translations.gettext("Network Optimizer and Diagnostics") != "Tối ưu và chẩn đoán mạng":
                   raise SystemExit("Vietnamese translation could not be loaded.")
           parser = configparser.ConfigParser(interpolation=None)
           parser.read_string("[addon]\n" + manifest)
+          if parser["addon"]["name"] != "networkOptimizer":
+              raise SystemExit("The stable add-on ID must remain networkOptimizer for Store updates.")
+          if parser["addon"]["author"] != '"Võ Duy Khánh"':
+              raise SystemExit("The package author must be Võ Duy Khánh.")
           if parser["addon"]["version"] != version:
               raise SystemExit("Package manifest version mismatch.")
+          if not re.fullmatch(r"[0-9]+\.[0-9]+(?:\.[0-9]+)?", version):
+              raise SystemExit("The add-on version is not compatible with Store update ordering.")
           print(f"Validated {package}")
           '@ | python
 

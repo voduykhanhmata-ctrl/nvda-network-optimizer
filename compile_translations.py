@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Võ Duy Khánh
 """Compile gettext PO catalogs for the NVDA add-on without external tools."""
 
 from __future__ import annotations
