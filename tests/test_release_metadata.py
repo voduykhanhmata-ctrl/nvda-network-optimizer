@@ -42,6 +42,8 @@ class ReleaseMetadataTests(unittest.TestCase):
 		build_script = (ROOT / "build_addon.ps1").read_text(encoding="utf-8-sig")
 		self.assertGreaterEqual(build_script.count("Get-Content -Raw -Encoding UTF8"), 2)
 		self.assertIn("Get-Content -Encoding UTF8 -LiteralPath $manifestPath", build_script)
+		self.assertIn("$licenseLines = $licenseText -split '\\r?\\n'", build_script)
+		self.assertIn("$licenseLines -notcontains 'Copyright (C) 2026 Võ Duy Khánh'", build_script)
 
 	def test_public_documentation_names_the_author(self):
 		for relative_path in (

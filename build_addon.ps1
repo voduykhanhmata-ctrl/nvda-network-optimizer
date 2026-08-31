@@ -62,7 +62,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
 $manifestFile = Get-Item -LiteralPath $manifestPath
 $licenseFile = Get-Item -LiteralPath (Join-Path $projectRoot "LICENSE")
 $licenseText = Get-Content -Raw -Encoding UTF8 -LiteralPath $licenseFile.FullName
-if ($licenseText -notmatch '(?m)^Copyright \(C\) 2026 Võ Duy Khánh$') {
+$licenseLines = $licenseText -split '\r?\n'
+if ($licenseLines -notcontains 'Copyright (C) 2026 Võ Duy Khánh') {
 	throw "The project copyright owner must be Võ Duy Khánh."
 }
 if ($licenseText -notmatch 'SPDX-License-Identifier: GPL-2\.0-or-later') {
